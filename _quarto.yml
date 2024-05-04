@@ -1,8 +1,9 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  title: "today"
+  title: "Data in the Wild"
   navbar:
     left:
       - href: index.qmd

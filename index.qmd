@@ -1,0 +1,10 @@
+---
+title: "Data in the Wild"
+format: html
+editor: visual
+execute:
+  echo: false
+  warning: false
+---
+
+### welcome to data in the wild
