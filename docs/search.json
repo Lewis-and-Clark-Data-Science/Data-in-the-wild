@@ -4,6 +4,6 @@
     "href": "index.html",
     "title": "Data in the Wild",
     "section": "",
-    "text": "welcome to data in the wild\n\n\n[1] \"&lt;div class=\\\"card\\\"&gt;&lt;div class=\\\"card-body\\\"&gt;&lt;h5 class=\\\"card-title\\\"&gt;Card Title&lt;/h5&gt;This is the body of the card.&lt;/div&gt;&lt;/div&gt;\"\n\n\n\nI’m a p tag"
+    "text": "welcome to data in the wild\n\n\n[1] \"&lt;div class=\\\"card\\\"&gt;&lt;div class=\\\"card-body\\\"&gt;&lt;h5 class=\\\"card-title\\\"&gt;Card Title&lt;/h5&gt;This is the body of the card.&lt;/div&gt;&lt;/div&gt;\"\n\n\n\nI’m a p tag\n\n\n\n\n&lt;h5 class=\"card-title\"&gt;Card title&lt;/h5&gt;\n&lt;p class=\"card-text\"&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;\n&lt;a href=\"#\" class=\"btn btn-primary\"&gt;Go somewhere&lt;/a&gt;"
   }
 ]
