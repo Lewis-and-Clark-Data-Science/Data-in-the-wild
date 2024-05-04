@@ -8,3 +8,16 @@ execute:
 ---
 
 ### welcome to data in the wild
+
+```{r}
+
+library(bsTools)
+
+# Create a Bootstrap card
+bsTools::bs_card(
+  title = "Card Title",
+
+  body = "This is the body of the card."
+)
+
+```
