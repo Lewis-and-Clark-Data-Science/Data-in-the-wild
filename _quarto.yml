@@ -9,9 +9,6 @@ website:
     search: false
     contents:
       - href: index.qmd
-      - href: Info/our_team.qmd
-      - href: Info/contact_us.qmd
-      - href: Info/syllabus.qmd
       - href: schedule.qmd
       - section: "Coding Boot Campzz"
         contents: 

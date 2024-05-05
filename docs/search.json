@@ -1,9 +1,9 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data in the Wild",
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Data in the Wild Schedule",
     "section": "",
-    "text": "welcome to data in the wild\n\n\n\n#\nFirst\nLast\nHandle\n\n\n\n\n1\nMark\nOtto\n@mdo\n\n\n2\nJacob\nThornton\n@fat\n\n\n3\nLarry\nthe Bird\n@twitter"
+    "text": "welcome to data in the wild\n\n\n\nModule\nTopics\nCode-a-long\nHomework\nGroup Practice\n\n\n\n\n1.1\nIntro to RStudio / posit.cloud\n[](modules/module_1/module_1.1/code-a-long-1.1.qmd)\n\n\n\n\n2\nJacob\nThornton\n@fat\n\n\n\n3\nLarry\nthe Bird\n@twitter"
   }
 ]

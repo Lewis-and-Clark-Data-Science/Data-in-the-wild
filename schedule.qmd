@@ -1,5 +1,5 @@
 ---
-title: "Data in the Wild Home"
+title: "Data in the Wild Schedule"
 format: html
 editor: visual
 execute:
@@ -14,18 +14,20 @@ execute:
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Module</th>
+      <th scope="col">Topics</th>
+      <th scope="col">Code-a-long</th>
+      <th scope="col">Homework</th>
+      <th scope="col">Group Practice</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row">1.1</th>
+      <td>Intro to RStudio / posit.cloud</td>
+      <td>[{{< fa book-open >}}](modules/module_1/module_1.1/code-a-long-1.1.qmd)</td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <th scope="row">2</th>
