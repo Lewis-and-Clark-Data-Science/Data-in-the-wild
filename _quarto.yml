@@ -10,14 +10,7 @@ website:
     contents:
       - href: index.qmd
       - href: schedule.qmd
-      - section: "Coding Boot Campzz"
-        contents: 
-          - href: Bootcamp/coding_basics_for_this_course.qmd
-          - href: Bootcamp/bootcamp_1.qmd
-          - href: Bootcamp/bootcamp_2.qmd
-          - href: Bootcamp/bootcamp_3.qmd
-          - href: Bootcamp/bootcamp_practice_1.qmd
-      - section: "Lessons"
+      - section: "Modules"
         contents:
         - href: Lessons/lessons.qmd
         - href: Lessons/data_aquisition_cleaning.qmd
