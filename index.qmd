@@ -9,44 +9,35 @@ execute:
 
 ### welcome to data in the wild
 
-```{r}
-
-library(bsTools)
-
-# Create a Bootstrap card
-bsTools::bs_card(
-  title = "Card Title",
-
-  body = "This is the body of the card."
-)
-
-```
-
-
-<p>I'm a p tag</p>
-
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
 
 ```{=html}
-<table>
-  <caption>As described in the section above, Quarto tables are great.</caption>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Header 1</th>
-      <th>Header 2</th>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/African_Bush_Elephant.jpg/220px-African_Bush_Elephant.jpg" alt="African Bush Elephant" /></td>
-      <td>Regular output</td>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
     </tr>
   </tbody>
 </table>
