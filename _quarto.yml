@@ -5,6 +5,7 @@ project:
 website:
   sidebar:
     style: "docked"
+    logo: "images/ditw.png"
     collapse-level: 1
     search: false
     contents:
