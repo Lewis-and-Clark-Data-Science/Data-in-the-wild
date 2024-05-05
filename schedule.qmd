@@ -28,7 +28,7 @@ execute:
     <tr>
       <th scope="row">1.1</th>
       <td>Intro to RStudio / posit.cloud</td>
-      <td><a href="modules/module_1/module_1.1/code-a-long-1.1.qmd"><i class="fa-solid fa-user"></i></a></td>
+      <td><a href="modules/module_1/module_1.1/code-a-long-1.1.qmd">code-a-long-1.1.qmd</a></td>
       <td></td>
       <td></td>
     </tr>
