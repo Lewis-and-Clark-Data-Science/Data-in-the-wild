@@ -1,0 +1,14 @@
+{
+  "hash": "9dfff5ff8af16184c5cf2c4121df7351",
+  "result": {
+    "markdown": "---\ntitle: \"Data in the Wild\"\nformat: html\neditor: visual\nexecute:\n  echo: false\n  warning: false\n---\n\n\n### welcome to data in the wild\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"<div class=\\\"card\\\"><div class=\\\"card-body\\\"><h5 class=\\\"card-title\\\">Card Title</h5>This is the body of the card.</div></div>\"\n```\n:::\n:::\n\n\n\n<p>I'm a p tag</p>\n\n<div class=\"card\" style=\"width: 18rem;\">\n  <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Card title</h5>\n    <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n    <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n  </div>\n</div>\n\n\n```{=html}\n<table>\n  <caption>As described in the section above, Quarto tables are great.</caption>\n  <thead>\n    <tr>\n      <th>Header 1</th>\n      <th>Header 2</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n    <td><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/African_Bush_Elephant.jpg/220px-African_Bush_Elephant.jpg\" alt=\"African Bush Elephant\" /></td>\n      <td>Regular output</td>\n    </tr>\n  </tbody>\n</table>\n```",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
