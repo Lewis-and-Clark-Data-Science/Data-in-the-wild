@@ -9,7 +9,6 @@ execute:
 
 ### welcome to data in the wild
 
-
 ```{=html}
 <!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,10 +32,11 @@ execute:
       <td></td>
     </tr>
     <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+      <th scope="row">1.2</th>
+      <td>Intro to RStudio / posit.cloud</td>
+      <td><a href="modules/module_1/module_1.1/code-a-long-1.2.qmd">code-a-long-1.1.qmd</a></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <th scope="row">3</th>
