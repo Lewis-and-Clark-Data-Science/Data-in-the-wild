@@ -1,0 +1,196 @@
+---
+title: 'Module 3: ANOVA'
+author: "Mila Pruiett"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Statistical inference and ANOVAs
+
+## Wrapping up t-tests
+
+Last week we used t-tests to think about which bay we should go fishing to minimize our impact on leopard seals.
+
+1.  Are the bays equal in their fish populations?
+
+```{r}
+library(tidyverse)
+fish <- read_csv("arctic-fish.csv")
+
+ggplot(fish, aes(bay, num_fish, fill = bay)) +
+  geom_boxplot()
+
+t.test(data = fish, num_fish ~ bay)
+```
+
+Response:
+
+2.  Are the bays equal in their leopard seal populations?
+
+```{r}
+seals <- read_csv("arctic-seals.csv")
+
+ggplot(seals, aes(bay, num_seals, fill = bay)) +
+  geom_boxplot()
+
+t.test(data = seals, num_seals ~ bay)
+```
+
+Response:
+
+3.  What should we do?
+
+```{r}
+# How to report a t test: We can reject null and conclude x bc (DF< alpha, p)
+
+```
+
+### ANOVA: **AN**alysis **O**f **VA**riance
+
+### When can I use an ANOVA? Why would I?
+
+-   Independent variable is categorical and the response is numerical
+
+-   Goal: to compare means among groups
+
+### Assumptions of ANOVA
+
+-   Data are "normally distributed" =\> look at the histogram
+-   Data are "equally varied" =\> standard deviations reasonably similar
+-   Samples are independent of one another
+
+### The null and alternative hypotheses
+
+$H_{0}$ (null hypothesis) - The means of the populations we sampled from **are** **all equal:** $\mu{1} = \mu{2} = ... = \mu{i}$
+
+$H_{a}$ (alternative hypothesis) - The means of the populations we sampled from **are not all equal**
+
+### Let's jump in with an example
+
+We have figured out the best option for minimizing our impact on leopard seals while keeping ourselves fed between two bays: Wilhelmina and Marguerite. But there are more bays! And ideally we would use two or more bays to spread out our fishing efforts among mulitple humped rock cod populations. 
+
+Our team has collected similar data, as we had for Wilhelmina and Marguerite, on four more bays: Emperor, Hope, Sil
+
+We are going to examine the fish populations in class, and you will work with the leopard seals for your homework.
+
+1. What is it that we want to know about these six bays? Which variable is the independent variable? Which is the dependent? 
+```{r}
+
+```
+
+2. What are our null and alternative hypotheses?
+```{r}
+
+```
+
+3. Read in the data
+```{r}
+fishManyBays <- read_csv("antarctic_fish_many_bays.csv")
+```
+
+It's always a good idea to visualize your data first. This gives you some perspective on the distribution of the data. What type of data viz is best for viewing the distribution of one variable?
+
+4. 
+```{r}
+ggplot(data = fishManyBays, aes(x = num_fish)) + 
+  geom_histogram()  +
+  facet_wrap(~ bay)
+```
+
+
+5. Now let's calculate some summary statistics. What do you notice? 
+```{r}
+fishSummary <- fishManyBays %>% group_by(bay) %>% summarize(meanFish = mean(num_fish), standDevFish = sd(num_fish), sampleSize = n())
+fishSummary
+```
+
+6. Let's create a bar graph to compare the summary stats between the groups. Does it seem like the groups are different? 
+```{r}
+ggplot(data = fishSummary, aes(bay, meanFish, fill = bay)) + 
+  geom_bar(stat = "identity") +
+    geom_errorbar( aes(ymin = meanFish-standDevFish, ymax = meanFish + standDevFish), 
+                 data = fishSummary, width = 0.2)  +
+  xlab("Bay Name") +
+  ylab("Mean Number of Fish") +
+  ggtitle("Mean number of fish per bay")
+```
+
+
+7. Finally, let's code for the ANOVA. The syntax is dependent variable ~ independent variable
+```{r}
+fishModel <- aov(data = fishManyBays, num_fish ~ bay)
+summary(fishModel)
+
+```
+
+8. How do we interpret this ANOVA?
+```{r}
+
+```
+
+9. What is our recommendation for fishing based only off of this information?
+```{r}
+
+```
+
+
+ANOVAs are incredibly useful to tell you if there is a difference in the means of any of the groups. However, they do not tell you which means differ from another. To do that, you need to use a class of tests called Post Hoc Tests. Post hoc tests take into account the problem of running multiple pairwise comparisons, which is the increasing chance of error rates. The most common is Tukey's HSD, but there are others depending on the specifics of your data set. You don't need to worry about understanding Tukey's test, but here I am going to show you how it works and an overview of the interpretation of it. 
+```{r}
+TukeyHSD(fishModel)
+```
+
+
+Making a boxplot w/ tukey's results posted
+```{r}
+# install.packages("multcompView")
+library("multcompView")
+
+generate_label_df <- function(TUKEY, variable){
+
+  # Extract labels and factor levels from Tukey post-hoc 
+  Tukey.levels <- TUKEY[[variable]][,4]
+  Tukey.labels <- data.frame(multcompLetters(Tukey.levels)['Letters'])
+
+  #I need to put the labels in the same order as in the boxplot :
+  Tukey.labels$treatment=rownames(Tukey.labels)
+  Tukey.labels=Tukey.labels[order(Tukey.labels$treatment) , ]
+  return(Tukey.labels)
+}
+
+fishManyBays <- fishManyBays %>% select(num_fish, bay)
+
+model=lm(fishManyBays$num_fish ~ fishManyBays$bay)
+ANOVA=aov(model)
+
+# Tukey test to study each pair of treatment :
+TUKEY <- TukeyHSD(x=ANOVA, 'fishManyBays$bay', conf.level=0.95)
+
+labels<-generate_label_df(TUKEY , "fishManyBays$bay")  #generate labels using function
+
+names(labels)<-c('Letters','bay')#rename columns for merging
+
+yvalue<-aggregate(.~ bay, data=fishManyBays, mean) # obtain letter position for y axis using means
+
+final<-merge(labels, yvalue) #merge dataframes
+
+ggplot(fishManyBays, aes(x = bay, y = num_fish, fill = bay)) +
+  geom_blank() +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+  labs(x = 'Bay', y = 'Number of Fish') +
+  ggtitle("Differences in the number of fish by bay from Tukey's HSD")+
+  theme(plot.title = element_text(hjust = 0.5, face='bold')) +
+  geom_boxplot(stat = "boxplot") +
+  geom_text(data = final, aes(x = bay, y = num_fish, label = Letters) ,vjust=-3.5,hjust=-.5) +
+  theme(plot.title = element_text(vjust=-0.6))
+
+```
+
+
+
+Want to nerd out about ANOVAs? I recommend Bio statistical Design and Analysis Using R: <https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99900585075901844> (p254) A Primer of Ecological Statistics: <https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99141374340101844>

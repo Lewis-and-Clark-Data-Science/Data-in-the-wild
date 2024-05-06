@@ -1,0 +1,80 @@
+---
+title: "Module 3: ANOVA"
+author: "Mila Pruiett"
+output:
+  html_document: default
+---
+
+Your name:
+
+Date:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Main Question: We want to know if the population of leopard seals differs between the bays.**
+
+1.  To answer this question, which variable in the data set is the independent variable? Which is the dependent? Which variable is categorical? Which variable is numeric? (4pts)
+
+```{r}
+# independent is
+
+# dependent is
+
+# categorical is
+
+# numerical is 
+
+```
+
+2.  What are our null and alternative hypotheses? (2pts)
+
+```{r}
+# Null: 
+
+# Alternative: 
+
+```
+
+3.  Load tidyverse and read in the data, called "antarctic_seals_many_bays.csv" (2pts)
+
+```{r}
+
+
+```
+
+4.  Create a histogram of the number of seals to see the distribution. Use facet_wrap(\~ bay) to create 6 histograms, one for each bay. (2pts)
+
+```{r}
+
+```
+
+5.  Now let's calculate some summary statistics of the number of leopard seals per bay (mean and standard deviation). Which bay has the highest average of seals? Which bay has the lowest average? (4pts)
+
+```{r}
+# summary stats
+
+
+# bay with lowest mean number of seals:
+# bay with the greatest mean number of seals: 
+
+```
+
+6.  Run an ANOVA to test if the mean number of seals varies between the bays. (1pts)
+
+```{r}
+
+```
+
+7.  Interpret the ANOVA table you just created: What is the p-value? What is the F-value? What is our critical p-value we have been using in this class (called the alpha level)? Do you accept or reject the null hypothesis? What does that mean, specifically for comparing the means of the data (you should reference "bay" and "population" in your answer? (5pts)
+
+```{r}
+# p-value from ANOVA table:
+# F-value from ANOVA table:
+# Critical p-value (alpha level):
+# Do you accept or reject the null?
+# What it means:
+
+
+```

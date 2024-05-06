@@ -52,3 +52,5 @@ rsconnect/
 
 .DS_Store
 modules/.DS_Store
+
+/.luarc.json

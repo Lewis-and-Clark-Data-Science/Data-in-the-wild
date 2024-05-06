@@ -10,6 +10,7 @@ website:
     search: false
     contents:
       - href: index.qmd
+      - href: using.qmd
       - href: schedule.qmd
       - section: "Modules"
         contents:
