@@ -12,6 +12,7 @@ website:
       - href: index.qmd
       - href: using.qmd
       - href: schedule.qmd
+      - href: webr-test.qmd
 
 
 

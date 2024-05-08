@@ -1,0 +1,35 @@
+---
+title: "Using this content"
+format: 
+  html:
+    code-link: true
+editor: visual
+filters: 
+  - webr
+---
+
+### install and load the tidyverse
+
+```{web-r}
+
+install.packages("tidyverse")
+install.packages("palmerpenguins")
+library(tidyverse)
+library(palmerpenguins)
+
+
+
+
+```
+
+
+### look at the data set
+
+```{web-r}
+
+glimpse(penguins)
+
+
+```
+
+
