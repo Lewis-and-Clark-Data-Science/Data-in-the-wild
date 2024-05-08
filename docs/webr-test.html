@@ -264,7 +264,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"comment":"","out-width":"700px","out-height":"","fig-cap":"","message":"true","output":"true","results":"markup","label":"unnamed-chunk-1","autorun":"false","warning":"true","read-only":"false","editor-font-scale":1,"editor-max-height":"","editor-quick-suggestions":"false","context":"interactive","classes":"","fig-height":5,"dpi":72,"fig-width":7},"code":"\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(palmerpenguins)\n\n\n"},{"id":2,"options":{"comment":"","out-width":"700px","out-height":"","fig-cap":"","message":"true","output":"true","results":"markup","label":"unnamed-chunk-2","autorun":"false","warning":"true","read-only":"false","editor-font-scale":1,"editor-max-height":"","editor-quick-suggestions":"false","context":"interactive","classes":"","fig-height":5,"dpi":72,"fig-width":7},"code":"\nglimpse(penguins)\n"},{"id":3,"options":{"comment":"","out-width":"700px","out-height":"","fig-cap":"","message":"true","output":"true","results":"markup","label":"unnamed-chunk-3","autorun":"false","warning":"true","read-only":"false","editor-font-scale":1,"editor-max-height":"","editor-quick-suggestions":"false","context":"interactive","classes":"","fig-height":5,"dpi":72,"fig-width":7},"code":"\npenguins |>\n  group_by(species) |>\n  summarize(avgFlippers=mean(flipper_length_mm, na.rm=TRUE)) |>\n  ggplot(mapping=aes(x=species, y=avgFlippers, fill=species)) +\n  geom_bar(stat=\"identity\")\n"},{"id":4,"options":{"comment":"","out-width":"700px","out-height":"","fig-cap":"","message":"true","output":"true","results":"markup","label":"unnamed-chunk-4","autorun":"false","warning":"true","read-only":"false","editor-font-scale":1,"editor-max-height":"","editor-quick-suggestions":"false","context":"interactive","classes":"","fig-height":5,"dpi":72,"fig-width":7},"code":"# create a bar plot comparing average bill length by species\n\n"}];
+globalThis.qwebrCellDetails = [{"options":{"warning":"true","editor-max-height":"","dpi":72,"out-height":"","label":"unnamed-chunk-1","classes":"","comment":"","fig-cap":"","results":"markup","fig-width":7,"autorun":"false","read-only":"false","out-width":"700px","editor-font-scale":1,"editor-quick-suggestions":"false","output":"true","message":"true","fig-height":5,"context":"interactive"},"code":"\nglimpse(penguins)\n","id":1},{"options":{"warning":"true","editor-max-height":"","dpi":72,"out-height":"","label":"unnamed-chunk-2","classes":"","comment":"","fig-cap":"","results":"markup","fig-width":7,"autorun":"false","read-only":"false","out-width":"700px","editor-font-scale":1,"editor-quick-suggestions":"false","output":"true","message":"true","fig-height":5,"context":"interactive"},"code":"\npenguins |>\n  group_by(species) |>\n  summarize(avgFlippers=mean(flipper_length_mm, na.rm=TRUE)) |>\n  ggplot(mapping=aes(x=species, y=avgFlippers, fill=species)) +\n  geom_bar(stat=\"identity\")\n","id":2},{"options":{"warning":"true","editor-max-height":"","dpi":72,"out-height":"","label":"unnamed-chunk-3","classes":"","comment":"","fig-cap":"","results":"markup","fig-width":7,"autorun":"false","read-only":"false","out-width":"700px","editor-font-scale":1,"editor-quick-suggestions":"false","output":"true","message":"true","fig-height":5,"context":"interactive"},"code":"# create a bar plot comparing average bill length by species\n\n","id":3}];
 
 </script><script type="module">
 // Declare startupMessageQWebR globally
@@ -1148,8 +1148,7 @@ globalThis.qwebrExecuteCode = async function (
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#install-and-load-some-tidyverse-packages-palmerpenguins" id="toc-install-and-load-some-tidyverse-packages-palmerpenguins" class="nav-link active" data-scroll-target="#install-and-load-some-tidyverse-packages-palmerpenguins">install and load some tidyverse packages, palmerpenguins</a></li>
-  <li><a href="#look-at-the-data-set" id="toc-look-at-the-data-set" class="nav-link" data-scroll-target="#look-at-the-data-set">look at the data set</a></li>
+<li><a href="#look-at-the-data-set" id="toc-look-at-the-data-set" class="nav-link active" data-scroll-target="#look-at-the-data-set">look at the data set</a></li>
   <li><a href="#sample-plot" id="toc-sample-plot" class="nav-link" data-scroll-target="#sample-plot">sample plot</a></li>
   </ul></nav>
     </div>
@@ -1392,17 +1391,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   
 
 
-</header><section id="install-and-load-some-tidyverse-packages-palmerpenguins" class="level3"><h3 class="anchored" data-anchor-id="install-and-load-some-tidyverse-packages-palmerpenguins">install and load some tidyverse packages, palmerpenguins</h3>
+</header><p>The ‘ggplot2’, ‘dplyr’, and ‘palmerpenguins’ are pre-installed.</p>
+<section id="look-at-the-data-set" class="level3"><h3 class="anchored" data-anchor-id="look-at-the-data-set">look at the data set</h3>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section><section id="look-at-the-data-set" class="level3"><h3 class="anchored" data-anchor-id="look-at-the-data-set">look at the data set</h3>
+</section><section id="sample-plot" class="level3"><h3 class="anchored" data-anchor-id="sample-plot">sample plot</h3>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section><section id="sample-plot" class="level3"><h3 class="anchored" data-anchor-id="sample-plot">sample plot</h3>
-<div id="qwebr-insertion-location-3"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>now your turn!</p>
-<div id="qwebr-insertion-location-4"></div>
+<div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 

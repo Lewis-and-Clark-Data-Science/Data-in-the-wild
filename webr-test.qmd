@@ -12,19 +12,7 @@ filters:
   - webr
 ---
 
-### install and load some tidyverse packages, palmerpenguins
-
-```{webr-r}
-
-
-library(dplyr)
-library(ggplot2)
-library(palmerpenguins)
-
-
-
-
-```
+The 'ggplot2', 'dplyr', and 'palmerpenguins' are pre-installed.
 
 ### look at the data set
 
