@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.550">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>WebR test</title>
 <style>
 code{white-space: pre-wrap;}
@@ -21,7 +18,6 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -38,8 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -65,10 +60,8 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style type="text/css">
 .monaco-editor pre {
   background-color: unset !important;
@@ -271,10 +264,9 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"context":"interactive","results":"markup","warning":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"label":"unnamed-chunk-1","read-only":"false","autorun":"false","message":"true","editor-font-scale":1,"comment":"","out-width":"700px","dpi":72,"editor-max-height":"","fig-cap":"","output":"true","classes":"","out-height":""},"code":"\ninstall.packages(\"tidyverse\")\ninstall.packages(\"palmerpenguins\")\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n\n"},{"id":2,"options":{"context":"interactive","results":"markup","warning":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"label":"unnamed-chunk-2","read-only":"false","autorun":"false","message":"true","editor-font-scale":1,"comment":"","out-width":"700px","dpi":72,"editor-max-height":"","fig-cap":"","output":"true","classes":"","out-height":""},"code":"\nglimpse(penguins)\n"}];
+globalThis.qwebrCellDetails = [{"code":"\ninstall.packages(\"dplyr\")\ninstall.packages(\"ggplot2\")\ninstall.packages(\"palmerpenguins\")\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(palmerpenguins)\n\n\n","id":1,"options":{"autorun":"false","context":"interactive","label":"unnamed-chunk-1","fig-cap":"","warning":"true","results":"markup","editor-max-height":"","dpi":72,"fig-height":5,"out-width":"700px","out-height":"","output":"true","editor-font-scale":1,"classes":"","read-only":"false","fig-width":7,"editor-quick-suggestions":"false","message":"true","comment":""}},{"code":"\nglimpse(penguins)\n","id":2,"options":{"autorun":"false","context":"interactive","label":"unnamed-chunk-2","fig-cap":"","warning":"true","results":"markup","editor-max-height":"","dpi":72,"fig-height":5,"out-width":"700px","out-height":"","output":"true","editor-font-scale":1,"classes":"","read-only":"false","fig-width":7,"editor-quick-suggestions":"false","message":"true","comment":""}},{"code":"\npenguins |>\n  group_by(species) |>\n  summarize(avgFlippers=mean(flipper_length_mm, na.rm=TRUE)) |>\n  ggplot(mapping=aes(x=species, y=avgFlippers, fill=species)) +\n  geom_bar(stat=\"identity\")\n","id":3,"options":{"autorun":"false","context":"interactive","label":"unnamed-chunk-3","fig-cap":"","warning":"true","results":"markup","editor-max-height":"","dpi":72,"fig-height":5,"out-width":"700px","out-height":"","output":"true","editor-font-scale":1,"classes":"","read-only":"false","fig-width":7,"editor-quick-suggestions":"false","message":"true","comment":""}},{"code":"# create a bar plot comparing average bill length by species\n\n","id":4,"options":{"autorun":"false","context":"interactive","label":"unnamed-chunk-4","fig-cap":"","warning":"true","results":"markup","editor-max-height":"","dpi":72,"fig-height":5,"out-width":"700px","out-height":"","output":"true","editor-font-scale":1,"classes":"","read-only":"false","fig-width":7,"editor-quick-suggestions":"false","message":"true","comment":""}}];
 
-</script>
-<script type="module">
+</script><script type="module">
 // Declare startupMessageQWebR globally
 globalThis.qwebrStartupMessage = document.createElement("p");
 
@@ -433,8 +425,7 @@ function displayStartupMessage(showStartupMessage, showHeaderMessage) {
 
 displayStartupMessage(qwebrShowStartupMessage, qwebrShowHeaderMessage);
 qwebrOffScreenCanvasSupportWarningMessage();
-</script>
-<script type="module">
+</script><script type="module">
 // Supported Evaluation Types for Context
 globalThis.EvalTypes = Object.freeze({
   Interactive: 'interactive',
@@ -709,8 +700,7 @@ globalThis.createLoadingContainer = function(qwebrCounter) {
 
   return container;
 }
-</script>
-<script type="module">
+</script><script type="module">
 // Function to install a single package
 async function qwebrInstallRPackage(packageName) {
   await mainWebR.evalRVoid(`webr::install('${packageName}');`);
@@ -806,8 +796,7 @@ globalThis.qwebrInstance = import(qwebrCustomizedWebROptions.baseURL + "webr.mjs
 // Stop timer
 const initializeWebRTimerEnd = performance.now();
 
-</script>
-<script type="module">
+</script><script type="module">
 // Function to verify a given JavaScript Object is empty
 globalThis.qwebrIsObjectEmpty = function (arr) {
     return Object.keys(arr).length === 0;
@@ -1106,18 +1095,12 @@ globalThis.qwebrExecuteCode = async function (
     }
 }
 
-</script>
-
-
-<link rel="stylesheet" href="styles.css">
+</script><link rel="stylesheet" href="styles.css">
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -1125,20 +1108,15 @@ globalThis.qwebrExecuteCode = async function (
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/ditw.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
+      <img src="./images/ditw.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
@@ -1163,24 +1141,20 @@ globalThis.qwebrExecuteCode = async function (
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#install-and-load-the-tidyverse" id="toc-install-and-load-the-tidyverse" class="nav-link active" data-scroll-target="#install-and-load-the-tidyverse">install and load the tidyverse</a></li>
+<li><a href="#install-and-load-some-tidyverse-packages-palmerpenguins" id="toc-install-and-load-some-tidyverse-packages-palmerpenguins" class="nav-link active" data-scroll-target="#install-and-load-some-tidyverse-packages-palmerpenguins">install and load some tidyverse packages, palmerpenguins</a></li>
   <li><a href="#look-at-the-data-set" id="toc-look-at-the-data-set" class="nav-link" data-scroll-target="#look-at-the-data-set">look at the data set</a></li>
-  </ul>
-</nav>
+  <li><a href="#sample-plot" id="toc-sample-plot" class="nav-link" data-scroll-target="#sample-plot">sample plot</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
-<script type="module" id="qwebr-monaco-editor-init">
+<main class="content" id="quarto-document-content"><script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script><script type="module" id="qwebr-monaco-editor-init">
 
   // Configure the Monaco Editor's loader
   require.config({
@@ -1188,8 +1162,7 @@ globalThis.qwebrExecuteCode = async function (
       'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs'
     }
   });
-</script>
-<script type="module">
+</script><script type="module">
 // Function to update Monaco Editors when body class changes
 function updateMonacoEditorsOnBodyClassChange() {
     // Select the body element
@@ -1232,8 +1205,7 @@ function updateMonacoEditorTheme() {
 
 // Call the function to start observing changes to body class
 updateMonacoEditorsOnBodyClassChange();
-</script>
-<script type="module">
+</script><script type="module">
 // Global array to store Monaco Editor instances
 globalThis.qwebrEditorInstances = [];
 
@@ -1405,10 +1377,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   };
   
 }
-</script>
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+</script><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">WebR test</h1>
 </div>
 
@@ -1423,24 +1392,21 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   
 
 
-</header>
-
-
-<section id="install-and-load-the-tidyverse" class="level3">
-<h3 class="anchored" data-anchor-id="install-and-load-the-tidyverse">install and load the tidyverse</h3>
+</header><section id="install-and-load-some-tidyverse-packages-palmerpenguins" class="level3"><h3 class="anchored" data-anchor-id="install-and-load-some-tidyverse-packages-palmerpenguins">install and load some tidyverse packages, palmerpenguins</h3>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="look-at-the-data-set" class="level3">
-<h3 class="anchored" data-anchor-id="look-at-the-data-set">look at the data set</h3>
+</section><section id="look-at-the-data-set" class="level3"><h3 class="anchored" data-anchor-id="look-at-the-data-set">look at the data set</h3>
 <div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section><section id="sample-plot" class="level3"><h3 class="anchored" data-anchor-id="sample-plot">sample plot</h3>
+<div id="qwebr-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>now your turn!</p>
+<div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1940,8 +1906,6 @@ qwebrInstance.then(
   }
 );
 </script>
-
-
 
 
 </body></html>

@@ -9,20 +9,21 @@ filters:
   - webr
 ---
 
-### install and load the tidyverse
+### install and load some tidyverse packages, palmerpenguins
 
 ```{webr-r}
 
-install.packages("tidyverse")
+install.packages("dplyr")
+install.packages("ggplot2")
 install.packages("palmerpenguins")
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 library(palmerpenguins)
 
 
 
 
 ```
-
 
 ### look at the data set
 
@@ -33,4 +34,24 @@ glimpse(penguins)
 
 ```
 
+### sample plot
 
+```{webr-r}
+
+penguins |>
+  group_by(species) |>
+  summarize(avgFlippers=mean(flipper_length_mm, na.rm=TRUE)) |>
+  ggplot(mapping=aes(x=species, y=avgFlippers, fill=species)) +
+  geom_bar(stat="identity")
+
+
+```
+
+now your turn! 
+
+```{webr-r}
+# create a bar plot comparing average bill length by species
+
+
+
+```

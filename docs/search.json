@@ -122,7 +122,7 @@
     "href": "webr-test.html",
     "title": "WebR test",
     "section": "",
-    "text": "install and load the tidyverse\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nlook at the data set\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "text": "install and load some tidyverse packages, palmerpenguins\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nlook at the data set\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nsample plot\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nnow your turn!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "WebR test"
     ]
