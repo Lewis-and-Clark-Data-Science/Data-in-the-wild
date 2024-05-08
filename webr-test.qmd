@@ -16,9 +16,7 @@ filters:
 
 ```{webr-r}
 
-install.packages("dplyr")
-install.packages("ggplot2")
-install.packages("palmerpenguins")
+
 library(dplyr)
 library(ggplot2)
 library(palmerpenguins)
