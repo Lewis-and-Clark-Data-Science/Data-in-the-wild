@@ -1,8 +1,9 @@
 ---
-title: "Using this content"
+title: "WebR test"
 format: 
   html:
     code-link: true
+engine: knitr
 editor: visual
 filters: 
   - webr
@@ -10,7 +11,7 @@ filters:
 
 ### install and load the tidyverse
 
-```{web-r}
+```{webr-r}
 
 install.packages("tidyverse")
 install.packages("palmerpenguins")
@@ -25,7 +26,7 @@ library(palmerpenguins)
 
 ### look at the data set
 
-```{web-r}
+```{webr-r}
 
 glimpse(penguins)
 

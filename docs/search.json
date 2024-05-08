@@ -120,11 +120,11 @@
   {
     "objectID": "webr-test.html",
     "href": "webr-test.html",
-    "title": "Using this content",
+    "title": "WebR test",
     "section": "",
-    "text": "install and load the tidyverse\n\ninstall.packages(\"tidyverse\")\ninstall.packages(\"palmerpenguins\")\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n\n\n\n\n\nlook at the data set\n\nglimpse(penguins)",
+    "text": "install and load the tidyverse\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nlook at the data set\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
-      "Using this content"
+      "WebR test"
     ]
   }
 ]
