@@ -14,7 +14,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "welcome to data in the wild\n\n\n\n\n\n\n\n\nModule\nTopics\nCode-a-long\nHomework\nGroup Practice\n\n\n\n\n1.1\nIntro to RStudio / posit.cloud\ncode-a-long-1.1.qmd\n\n\n\n\n1.2\nIntro to RStudio / posit.cloud\ncode-a-long-1.2.qmd\n\n\n\n\n3\nLarry\nthe Bird\n@twitter",
+    "text": "welcome to data in the wild\n\n\n\n\n\n\n\n\nModule\nTopics\nCode-a-long\nHomework\nGroup Practice Problems\n\n\n\n\n1.1\nIntro to RStudio / posit.cloud\ncode-a-long-1.1.qmd\n\n\n\n\n1.2\nVariables, functions, loading data\ncode-a-long-1.2.qmd\nhomework-1.2.qmd\npractice-problems-1.2.qmd\n\n\n1.3\nAnalyzing class data set\ncode-a-long-1.3.qmd\nhomework-1.3.qmd\npractice-problems-1.3.qmd\n\n\n1.4\nAnalyzing external data set\ncode-a-long-1.4.qmd\nhomework-1.4.qmd",
     "crumbs": [
       "Schedule"
     ]
