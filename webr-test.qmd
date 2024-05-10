@@ -55,7 +55,5 @@ Next, use ggplot with geom_bar() on the prepared data.
 :::
 
 ```{r}
-radius <- 5
+knitr::kable(palmerpenguins::penguins)
 ```
-
-The radius of the circle is `{r} radius`
