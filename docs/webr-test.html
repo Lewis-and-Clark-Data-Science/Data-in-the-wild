@@ -298,7 +298,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"\nglimpse(penguins)\n","options":{"comment":"","fig-height":5,"classes":"","out-width":"700px","message":"true","fig-width":7,"warning":"true","dpi":72,"fig-cap":"","read-only":"false","out-height":"","editor-max-height":"","editor-font-scale":1,"autorun":"false","editor-quick-suggestions":"false","label":"unnamed-chunk-1","results":"markup","context":"interactive","output":"true"}},{"id":2,"code":"\npenguins |>\n  group_by(species) |>\n  summarize(avgFlippers=mean(flipper_length_mm, na.rm=TRUE)) |>\n  ggplot(mapping=aes(x=species, y=avgFlippers, fill=species)) +\n  geom_bar(stat=\"identity\")\n","options":{"comment":"","fig-height":5,"classes":"","out-width":"700px","message":"true","fig-width":7,"warning":"true","dpi":72,"fig-cap":"","read-only":"false","out-height":"","editor-max-height":"","editor-font-scale":1,"autorun":"false","editor-quick-suggestions":"false","label":"unnamed-chunk-2","results":"markup","context":"interactive","output":"true"}},{"id":3,"code":"# create a bar plot comparing average bill length by species\n\n","options":{"comment":"","fig-height":5,"classes":"","out-width":"700px","message":"true","fig-width":7,"warning":"true","dpi":72,"fig-cap":"","read-only":"false","out-height":"","editor-max-height":"","editor-font-scale":1,"autorun":"false","editor-quick-suggestions":"false","label":"unnamed-chunk-3","results":"markup","context":"interactive","output":"true"}}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"\nglimpse(penguins)\n","options":{"classes":"","editor-max-height":"","editor-font-scale":1,"results":"markup","editor-quick-suggestions":"false","comment":"","autorun":"false","dpi":72,"out-width":"700px","fig-height":5,"warning":"true","context":"interactive","output":"true","label":"unnamed-chunk-1","fig-cap":"","message":"true","fig-width":7,"read-only":"false","out-height":""}},{"id":2,"code":"\npenguins |>\n  group_by(species) |>\n  summarize(avgFlippers=mean(flipper_length_mm, na.rm=TRUE)) |>\n  ggplot(mapping=aes(x=species, y=avgFlippers, fill=species)) +\n  geom_bar(stat=\"identity\")\n","options":{"classes":"","editor-max-height":"","editor-font-scale":1,"results":"markup","editor-quick-suggestions":"false","comment":"","autorun":"false","dpi":72,"out-width":"700px","fig-height":5,"warning":"true","context":"interactive","output":"true","label":"unnamed-chunk-2","fig-cap":"","message":"true","fig-width":7,"read-only":"false","out-height":""}},{"id":3,"code":"# create a bar plot comparing average bill length by species\n\n","options":{"classes":"","editor-max-height":"","editor-font-scale":1,"results":"markup","editor-quick-suggestions":"false","comment":"","autorun":"false","dpi":72,"out-width":"700px","fig-height":5,"warning":"true","context":"interactive","output":"true","label":"unnamed-chunk-3","fig-cap":"","message":"true","fig-width":7,"read-only":"false","out-height":""}}];
 
 </script><script type="module">
 // Declare startupMessageQWebR globally
@@ -1448,9 +1448,6 @@ Hint
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First use group_by() with summarize() to prepare your data. Next, use ggplot with geom_bar() on the prepared data.</p>
-</div>
-</div>
-</div>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu">palmerpenguins</span><span class="fu">::</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html">penguins</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -4918,6 +4915,9 @@ Hint
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
 </div>
 </div>
 
