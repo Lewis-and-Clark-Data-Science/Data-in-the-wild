@@ -44,3 +44,14 @@ now your turn!
 
 
 ```
+
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+First use group_by() with summarize() to prepare your data.
+Next, use ggplot with geom_bar() on the prepared data.
+
+:::
+
+

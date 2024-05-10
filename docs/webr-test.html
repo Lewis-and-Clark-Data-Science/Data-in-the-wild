@@ -264,7 +264,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"warning":"true","editor-max-height":"","dpi":72,"out-height":"","label":"unnamed-chunk-1","classes":"","comment":"","fig-cap":"","results":"markup","fig-width":7,"autorun":"false","read-only":"false","out-width":"700px","editor-font-scale":1,"editor-quick-suggestions":"false","output":"true","message":"true","fig-height":5,"context":"interactive"},"code":"\nglimpse(penguins)\n","id":1},{"options":{"warning":"true","editor-max-height":"","dpi":72,"out-height":"","label":"unnamed-chunk-2","classes":"","comment":"","fig-cap":"","results":"markup","fig-width":7,"autorun":"false","read-only":"false","out-width":"700px","editor-font-scale":1,"editor-quick-suggestions":"false","output":"true","message":"true","fig-height":5,"context":"interactive"},"code":"\npenguins |>\n  group_by(species) |>\n  summarize(avgFlippers=mean(flipper_length_mm, na.rm=TRUE)) |>\n  ggplot(mapping=aes(x=species, y=avgFlippers, fill=species)) +\n  geom_bar(stat=\"identity\")\n","id":2},{"options":{"warning":"true","editor-max-height":"","dpi":72,"out-height":"","label":"unnamed-chunk-3","classes":"","comment":"","fig-cap":"","results":"markup","fig-width":7,"autorun":"false","read-only":"false","out-width":"700px","editor-font-scale":1,"editor-quick-suggestions":"false","output":"true","message":"true","fig-height":5,"context":"interactive"},"code":"# create a bar plot comparing average bill length by species\n\n","id":3}];
+globalThis.qwebrCellDetails = [{"options":{"dpi":72,"fig-height":5,"results":"markup","comment":"","context":"interactive","editor-font-scale":1,"message":"true","read-only":"false","warning":"true","out-width":"700px","label":"unnamed-chunk-1","autorun":"false","classes":"","out-height":"","editor-quick-suggestions":"false","output":"true","fig-cap":"","fig-width":7,"editor-max-height":""},"id":1,"code":"\nglimpse(penguins)\n"},{"options":{"dpi":72,"fig-height":5,"results":"markup","comment":"","context":"interactive","editor-font-scale":1,"message":"true","read-only":"false","warning":"true","out-width":"700px","label":"unnamed-chunk-2","autorun":"false","classes":"","out-height":"","editor-quick-suggestions":"false","output":"true","fig-cap":"","fig-width":7,"editor-max-height":""},"id":2,"code":"\npenguins |>\n  group_by(species) |>\n  summarize(avgFlippers=mean(flipper_length_mm, na.rm=TRUE)) |>\n  ggplot(mapping=aes(x=species, y=avgFlippers, fill=species)) +\n  geom_bar(stat=\"identity\")\n"},{"options":{"dpi":72,"fig-height":5,"results":"markup","comment":"","context":"interactive","editor-font-scale":1,"message":"true","read-only":"false","warning":"true","out-width":"700px","label":"unnamed-chunk-3","autorun":"false","classes":"","out-height":"","editor-quick-suggestions":"false","output":"true","fig-cap":"","fig-width":7,"editor-max-height":""},"id":3,"code":"# create a bar plot comparing average bill length by species\n\n"}];
 
 </script><script type="module">
 // Declare startupMessageQWebR globally
@@ -1401,6 +1401,22 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>now your turn!</p>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First use group_by() with summarize() to prepare your data. Next, use ggplot with geom_bar() on the prepared data.</p>
+</div>
+</div>
+</div>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
