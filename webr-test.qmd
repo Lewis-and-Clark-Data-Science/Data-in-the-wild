@@ -53,8 +53,9 @@ now your turn!
 First use group_by() with summarize() to prepare your data.
 Next, use ggplot with geom_bar() on the prepared data.
 ```{r}
-knitr::kable(palmerpenguins::penguins)
+#knitr::kable(palmerpenguins::penguins)
 #rmarkdown::paged_table(palmerpenguins::penguins)
+palmerpenguins::penguins
 ```
 
 :::
