@@ -17,6 +17,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -264,7 +298,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"dpi":72,"fig-height":5,"results":"markup","comment":"","context":"interactive","editor-font-scale":1,"message":"true","read-only":"false","warning":"true","out-width":"700px","label":"unnamed-chunk-1","autorun":"false","classes":"","out-height":"","editor-quick-suggestions":"false","output":"true","fig-cap":"","fig-width":7,"editor-max-height":""},"id":1,"code":"\nglimpse(penguins)\n"},{"options":{"dpi":72,"fig-height":5,"results":"markup","comment":"","context":"interactive","editor-font-scale":1,"message":"true","read-only":"false","warning":"true","out-width":"700px","label":"unnamed-chunk-2","autorun":"false","classes":"","out-height":"","editor-quick-suggestions":"false","output":"true","fig-cap":"","fig-width":7,"editor-max-height":""},"id":2,"code":"\npenguins |>\n  group_by(species) |>\n  summarize(avgFlippers=mean(flipper_length_mm, na.rm=TRUE)) |>\n  ggplot(mapping=aes(x=species, y=avgFlippers, fill=species)) +\n  geom_bar(stat=\"identity\")\n"},{"options":{"dpi":72,"fig-height":5,"results":"markup","comment":"","context":"interactive","editor-font-scale":1,"message":"true","read-only":"false","warning":"true","out-width":"700px","label":"unnamed-chunk-3","autorun":"false","classes":"","out-height":"","editor-quick-suggestions":"false","output":"true","fig-cap":"","fig-width":7,"editor-max-height":""},"id":3,"code":"# create a bar plot comparing average bill length by species\n\n"}];
+globalThis.qwebrCellDetails = [{"code":"\nglimpse(penguins)\n","id":1,"options":{"message":"true","warning":"true","output":"true","context":"interactive","editor-max-height":"","autorun":"false","comment":"","editor-font-scale":1,"label":"unnamed-chunk-1","editor-quick-suggestions":"false","results":"markup","fig-cap":"","fig-height":5,"read-only":"false","classes":"","out-height":"","fig-width":7,"dpi":72,"out-width":"700px"}},{"code":"\npenguins |>\n  group_by(species) |>\n  summarize(avgFlippers=mean(flipper_length_mm, na.rm=TRUE)) |>\n  ggplot(mapping=aes(x=species, y=avgFlippers, fill=species)) +\n  geom_bar(stat=\"identity\")\n","id":2,"options":{"message":"true","warning":"true","output":"true","context":"interactive","editor-max-height":"","autorun":"false","comment":"","editor-font-scale":1,"label":"unnamed-chunk-2","editor-quick-suggestions":"false","results":"markup","fig-cap":"","fig-height":5,"read-only":"false","classes":"","out-height":"","fig-width":7,"dpi":72,"out-width":"700px"}},{"code":"# create a bar plot comparing average bill length by species\n\n","id":3,"options":{"message":"true","warning":"true","output":"true","context":"interactive","editor-max-height":"","autorun":"false","comment":"","editor-font-scale":1,"label":"unnamed-chunk-3","editor-quick-suggestions":"false","results":"markup","fig-cap":"","fig-height":5,"read-only":"false","classes":"","out-height":"","fig-width":7,"dpi":72,"out-width":"700px"}}];
 
 </script><script type="module">
 // Declare startupMessageQWebR globally
@@ -1417,6 +1451,10 @@ Hint
 </div>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">radius</span> <span class="op">&lt;-</span> <span class="fl">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The radius of the circle is 5</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

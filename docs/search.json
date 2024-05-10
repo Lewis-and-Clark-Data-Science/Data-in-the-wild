@@ -122,7 +122,7 @@
     "href": "webr-test.html",
     "title": "WebR test",
     "section": "",
-    "text": "The ‘ggplot2’, ‘dplyr’, and ‘palmerpenguins’ are pre-installed.\nlook at the data set\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nsample plot\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nnow your turn!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nHint\n\n\n\n\n\nFirst use group_by() with summarize() to prepare your data. Next, use ggplot with geom_bar() on the prepared data.",
+    "text": "The ‘ggplot2’, ‘dplyr’, and ‘palmerpenguins’ are pre-installed.\nlook at the data set\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nsample plot\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nnow your turn!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nHint\n\n\n\n\n\nFirst use group_by() with summarize() to prepare your data. Next, use ggplot with geom_bar() on the prepared data.\n\n\n\n\nradius &lt;- 5\n\nThe radius of the circle is 5",
     "crumbs": [
       "WebR test"
     ]
