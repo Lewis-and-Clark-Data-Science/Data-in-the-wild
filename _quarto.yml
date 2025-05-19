@@ -3,6 +3,10 @@ project:
   output-dir: docs
 
 website:
+  title: "Data in the Wild, Lewis & Clark"
+  navbar: 
+    background: primary 
+    logo: "images/ditw.png"
   sidebar:
     style: "docked"
     logo: "images/ditw.png"
@@ -12,7 +16,7 @@ website:
       - href: index.qmd
       - href: using.qmd
       - href: schedule.qmd
-      - href: webr-test.qmd
+
 
 
 
@@ -24,3 +28,13 @@ format:
     toc: true
 
 editor: source
+
+
+
+
+
+
+
+
+
+

@@ -1,13 +1,11 @@
 ---
-title: "Home"
+title: "Data in the wild"
 format: html
 editor: visual
 execute:
   echo: false
   warning: false
 ---
-
-# Data in the wild
 
 ## A Numbers General Education Course, Lewis & Clark College
 
