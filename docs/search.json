@@ -319,7 +319,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Module\nTopics\nCode-a-long\nHomework\nGroup Practice Problems\nZip\n\n\n\n\n1.1\nIntro to RStudio / posit.cloud\nblank | key\n\n\n\n\n\n1.2\nVariables, functions, loading data\ncode-a-long-1.2.qmd\nhomework-1.2.qmd\npractice-problems-1.2.qmd\n\n\n\n1.3\nAnalyzing class data set\ncode-a-long-1.3.qmd\nhomework-1.3.qmd\npractice-problems-1.3.qmd\n\n\n\n1.4\nAnalyzing external data set\ncode-a-long-1.4.qmd\nhomework-1.4.qmd",
+    "text": "Module\nTopics\nCode-a-long\nHomework\nGroup Practice Problems\nImport into posit.cloud project\n(run in console)\n\n\n\n\n1.1\nIntro to RStudio / posit.cloud\nblank | key\n\n\nwget https://github.com/Lewis-and-Clark-Data-Science/Data-in-the-wild/raw/refs/heads/main/zips/module_1.1.zip && unzip module_1.1.zip && rm module_1.1.zip\n\n\n1.2\nVariables, functions, loading data\ncode-a-long-1.2.qmd\nhomework-1.2.qmd\npractice-problems-1.2.qmd\n\n\n\n1.3\nAnalyzing class data set\ncode-a-long-1.3.qmd\nhomework-1.3.qmd\npractice-problems-1.3.qmd\n\n\n\n1.4\nAnalyzing external data set\ncode-a-long-1.4.qmd\nhomework-1.4.qmd",
     "crumbs": [
       "Schedule"
     ]
