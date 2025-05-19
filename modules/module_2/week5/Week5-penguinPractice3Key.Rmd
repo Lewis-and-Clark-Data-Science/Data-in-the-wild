@@ -33,7 +33,9 @@ Remember
 ```{r}
 ggplot(data = penguins, mapping=aes(x=body_mass_g)) +
   geom_histogram() +
-  labs(title="Distribution of body mass for all species", x = "body mass (g)", y = "frequency")
+  labs(title="Distribution of body mass for all species", 
+       x = "body mass (g)", 
+       y = "frequency")
 
 # this histogram shows a d
 ```
@@ -43,7 +45,9 @@ ggplot(data = penguins, mapping=aes(x=body_mass_g)) +
 ```{r}
 ggplot(data = penguins, mapping=aes(x=body_mass_g, fill=species, alpha=0.5)) +
   geom_histogram() +
-  labs(title="Distribution of body mass by species", x = "body mass (g)", y = "frequency")
+  labs(title="Distribution of body mass by species", 
+       x = "body mass (g)", 
+       y = "frequency")
 ```
 
 3.  Now let's find out! Create a bar graph with the average body mass for each penguin species. (Don't forget about the NAs in the dataset) Which one has the greatest average body mass? How does that compare with what you thought looking at the histogram?
@@ -55,7 +59,8 @@ penguinMass <- penguins %>%
 
 ggplot(data=penguinMass, mapping=aes(x=species, y=avgMass, fill = species)) +
   geom_bar(stat="identity")+
-  labs(title="Mass by Species", y = "Average body mass (g)", x = "species")
+  labs(title="Mass by Species", 
+       y = "Average body mass (g)", x = "species")
 
 
 ```
@@ -65,7 +70,9 @@ ggplot(data=penguinMass, mapping=aes(x=species, y=avgMass, fill = species)) +
 ```{r}
 ggplot(data = penguins, mapping = aes(x=body_mass_g, y = flipper_length_mm, color = species)) +
   geom_point() +
-  labs(title = "Heavier penguins tend to have longer flippers", x = "body mass (g)", y = "flipper length (mm)")
+  labs(title = "Heavier penguins tend to have longer flippers", 
+       x = "body mass (g)", 
+       y = "flipper length (mm)")
 ```
 
 ![](penguinMouth.jpg){width="300"} ![](penguinAnatomy.jpg){width="300"}
@@ -73,9 +80,13 @@ ggplot(data = penguins, mapping = aes(x=body_mass_g, y = flipper_length_mm, colo
 5.  Create a data visualization to explore the question: Do penguins with longer bills tend to have longer flippers as well? Make sure to give the points either different colors or shapes based on the species.
 
 ```{r}
-ggplot(data = penguins, mapping = aes(x=bill_length_mm, y = flipper_length_mm, shape = species, color=species)) +
+ggplot(data = penguins, 
+       mapping = aes(x=bill_length_mm, 
+                                      y = flipper_length_mm, shape = species, color=species)) +
   geom_point() +
-  labs(title = "Penguins with longer bills tend to have longer flippers", x = "bill length (mm)", y = "flipper length (mm)")
+  labs(title = "Penguins with longer bills tend to have longer flippers", 
+       x = "bill length (mm)", 
+       y = "flipper length (mm)")
 ```
 
 6.  Create a bar graph that shows the average body mass by sex.
@@ -87,7 +98,8 @@ penguinMassBySex <- penguins %>%
 
 ggplot(data=penguinMassBySex, mapping=aes(x=sex, y=avgMass, fill = sex)) +
   geom_bar(stat="identity")+
-  labs(title="Mass by Sex", y = "Average body mass (g)", x = "sex")
+  labs(title="Mass by Sex", 
+       y = "Average body mass (g)", x = "sex")
 ```
 
 7.  Create one figure that has three bar graphs: comparing average body mass by sex AND species. If you need a hint, please ask!

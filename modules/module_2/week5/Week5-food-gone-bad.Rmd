@@ -60,10 +60,11 @@ visualization tools in R.
 
 ```{r}
 #load tidyverse
-
+library(tidyverse)
 
 # assign data set to variable "sick"
 
+sick<-read_csv("sick_data.csv")
 
 ```
 
@@ -162,6 +163,10 @@ the mapping aes function (y=), and a different geom function
 ```{r}
 
 # use ggplot with geom_point()
+
+ggplot(data=sick)+
+  geom_point(mapping=aes(x=doctor_trips, y=perc_fish), color="blue")+
+  geom_point(mapping=aes(x=doctor_trips, y=perc_plant), color="red")
 
 
 

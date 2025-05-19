@@ -4,7 +4,7 @@ output: html_notebook
 ---
 
 ```{r}
-
+library(tidyverse)
 library(palmerpenguins)
 
 penguins
@@ -14,11 +14,14 @@ penguins
 ```{r}
 
 
-adelie<-filter(.data=penguins, species=="Adelie")
+adelie<-penguins %>%
+  filter(species=="Adelie")
 
-gentoo<-filter(.data=penguins, species=="Gentoo")
+gentoo<-penguins %>% 
+  filter(species=="Gentoo")
 
-chinstrap<-filter(.data=penguins, species=="Chinstrap")
+chinstrap<-penguins %>%
+  filter(species=="Chinstrap")
 
 
 ```
@@ -34,7 +37,7 @@ billLengthsAllHist<-ggplot(data=penguins, mapping=aes(bill_length_mm))+
   geom_histogram(bins=20)+
   labs(title="Distribution of All Penguin Bill Lengths", x="Bill Lengths (mm)", y="Count")
 
-ggsave( "modules/module_1/lessons/week3/plots/BillLengthsAll.jpg",billLengthsAllHist)
+ggsave( "plots/BillLengthsAll.jpg",billLengthsAllHist)
 
 ```
 
@@ -48,7 +51,7 @@ bodyMassAllHist<-ggplot(data=penguins, mapping=aes(body_mass_g))+
   geom_histogram(bins=20)+
   labs(title="Distribution of All Penguin Body Mass", x="Body Mass (g)", y="Count")
 
-ggsave( "modules/module_1/lessons/week3/plots/BodyMassAll.jpg",bodyMassAllHist)
+ggsave( "plots/BodyMassAll.jpg",bodyMassAllHist)
 
 ```
 
@@ -61,7 +64,7 @@ billLengthsAdelieHist<-ggplot(data=adelie, mapping=aes(bill_length_mm))+
   geom_histogram(bins=20)+
   labs(title="Distribution of Adelie Penguin Bill Lengths", x="Bill Lengths (mm)", y="Count")
 
-ggsave( "modules/module_1/lessons/week3/plots/BillLengthsAdelie.jpg",billLengthsAdelieHist)
+ggsave( "plots/BillLengthsAdelie.jpg",billLengthsAdelieHist)
 
 
 
@@ -69,7 +72,7 @@ bodyMassAdelieHist<-ggplot(data=adelie, mapping=aes(body_mass_g))+
   geom_histogram(bins=20)+
   labs(title="Distribution of Adelie Penguin Body Mass", x="Body Mass (g)", y="Count")
 
-ggsave( "modules/module_1/lessons/week3/plots/BodyMassAdelie.jpg",bodyMassAdelieHist)
+ggsave( "plots/BodyMassAdelie.jpg",bodyMassAdelieHist)
 
 
 ```
@@ -84,7 +87,7 @@ billLengthsAdelieHist<-ggplot(data=adelie, mapping=aes(bill_length_mm))+
   geom_histogram(bins=20)+
   labs(title="Distribution of Adelie Penguin Bill Lengths", x="Bill Lengths (mm)", y="Count")
 
-ggsave( "modules/module_1/lessons/week3/plots/BillLengthsAdelie.jpg",billLengthsAdelieHist)
+ggsave( "plots/BillLengthsAdelie.jpg",billLengthsAdelieHist)
 
 
 
@@ -92,7 +95,7 @@ bodyMassAdelieHist<-ggplot(data=adelie, mapping=aes(body_mass_g))+
   geom_histogram(bins=20)+
   labs(title="Distribution of Adelie Penguin Body Mass", x="Body Mass (g)", y="Count")
 
-ggsave( "modules/module_1/lessons/week3/plots/BodyMassAdelie.jpg",bodyMassAdelieHist)
+ggsave( "plots/BodyMassAdelie.jpg",bodyMassAdelieHist)
 
 
 ```
@@ -106,7 +109,7 @@ billLengthsGentooHist<-ggplot(data=gentoo, mapping=aes(bill_length_mm))+
   geom_histogram(bins=20)+
   labs(title="Distribution of Gentoo Penguin Bill Lengths", x="Bill Lengths (mm)", y="Count")
 
-ggsave( "modules/module_1/lessons/week3/plots/BillLengthsGentoo.jpg",billLengthsGentooHist)
+ggsave( "plots/BillLengthsGentoo.jpg",billLengthsGentooHist)
 
 
 
@@ -114,7 +117,7 @@ bodyMassGentooHist<-ggplot(data=gentoo, mapping=aes(body_mass_g))+
   geom_histogram(bins=20)+
   labs(title="Distribution of Gentoo Penguin Body Mass", x="Body Mass (g)", y="Count")
 
-ggsave( "modules/module_1/lessons/week3/plots/BodyMassGentoo.jpg",bodyMassGentooHist)
+ggsave( "plots/BodyMassGentoo.jpg",bodyMassGentooHist)
 
 
 ```
@@ -129,7 +132,7 @@ billLengthsChinstrapHist<-ggplot(data=chinstrap, mapping=aes(bill_length_mm))+
   geom_histogram(bins=20)+
   labs(title="Distribution of Chinstrap Penguin Bill Lengths", x="Bill Lengths (mm)", y="Count")
 
-ggsave( "modules/module_1/lessons/week3/plots/BillLengthsChinstrap.jpg",billLengthsChinstrapHist)
+ggsave( "plots/BillLengthsChinstrap.jpg",billLengthsChinstrapHist)
 
 
 
@@ -137,7 +140,7 @@ bodyMassChinstrapHist<-ggplot(data=chinstrap, mapping=aes(body_mass_g))+
   geom_histogram(bins=20)+
   labs(title="Distribution of Chinstrap Penguin Body Mass", x="Body Mass (g)", y="Count")
 
-ggsave( "modules/module_1/lessons/week3/plots/BodyMassChinstrap.jpg",bodyMassChinstrapHist)
+ggsave( "plots/BodyMassChinstrap.jpg",bodyMassChinstrapHist)
 
 
 ```
@@ -169,7 +172,7 @@ billLengthPlot<-ggplot(data=penguinBillLengthStats, mapping=aes(x=species, y=avg
 
 billLengthPlot
 
-ggsave("modules/module_1/lessons/week3/plots/BillLengthComparison.jpg",billLengthPlot )
+ggsave("plots/BillLengthComparison.jpg",billLengthPlot )
 
 ```
 
@@ -201,6 +204,6 @@ bodyMassPlot<-ggplot(data=penguinMassStats, mapping=aes(x=species, y=avgBodyMass
 
 bodyMassPlot
 
-ggsave("modules/module_1/lessons/week3/plots/BodyMassComparison.jpg",bodyMassPlot )
+ggsave("plots/BodyMassComparison.jpg",bodyMassPlot )
 
 ```

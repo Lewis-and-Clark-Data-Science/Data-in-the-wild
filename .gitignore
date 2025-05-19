@@ -54,3 +54,5 @@ rsconnect/
 modules/.DS_Store
 
 /.luarc.json
+
+*.Rproj

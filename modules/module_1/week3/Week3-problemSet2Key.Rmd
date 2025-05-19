@@ -19,6 +19,7 @@ In the questions below, use R code to answer questions. For any non-coding quest
 Run this code chunk first, to make the survey data available as the variable `classData`:
 
 ```{r}
+library(tidyverse)
 classData<-read_csv("teamAntarcticaData.csv")
 ```
 
