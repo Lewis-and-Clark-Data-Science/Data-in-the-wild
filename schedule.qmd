@@ -34,7 +34,7 @@ execute:
       </td>
       <td></td>
       <td></td>
-      <td></td>
+      <td>wget https://github.com/Lewis-and-Clark-Data-Science/Data-in-the-wild/raw/refs/heads/main/zips/module_1.1.zip</td>
     </tr>
     <tr>
       <th scope="row">1.2</th>
