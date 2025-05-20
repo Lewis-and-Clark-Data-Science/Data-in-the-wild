@@ -7,9 +7,9 @@ website:
   navbar: 
     background: primary 
     logo: "images/ditw.png"
+    style: "docked"
   sidebar:
     style: "docked"
-    logo: "images/ditw.png"
     collapse-level: 1
     search: false
     contents:

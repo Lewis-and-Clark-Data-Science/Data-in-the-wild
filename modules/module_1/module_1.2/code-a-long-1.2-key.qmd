@@ -4,8 +4,6 @@ author: "Jeremy McWilliams"
 format: html
 ---
 
-## Variables, functions, loading data
-
 
 
 ### Learning Objectives

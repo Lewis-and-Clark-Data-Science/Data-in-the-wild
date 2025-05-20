@@ -43,9 +43,15 @@ execute:
         <a href="modules/module_1/module_1.2/code-a-long-1.2.qmd">blank</a> | 
         <a href="modules/module_1/module_1.2/code-a-long-1.2-key.qmd">key</a>
       </td>
-      <td>homework-1.2.qmd</td>
-      <td>practice-problems-1.2.qmd</td>
-      <td></td>
+      <td>
+        <a href="modules/module_1/module_1.2/homework-1.2.qmd">blank</a> | 
+        <a href="modules/module_1/module_1.2/homework-1.2-key.qmd">key</a>
+      </td>
+      <td>
+        <a href="modules/module_1/module_1.2/practice-problems-1.2.qmd">blank</a> | 
+        <a href="modules/module_1/module_1.2/practice-problems-1.2-key.qmd">key</a>
+      </td>
+      <td><div class='wget'>wget https://github.com/Lewis-and-Clark-Data-Science/Data-in-the-wild/raw/refs/heads/main/zips/module_1.2.zip && unzip module_1.2.zip && rm module_1.2.zip</div></td>
     </tr>
     <tr>
       <th scope="row">1.3</th>
