@@ -21,7 +21,7 @@ execute:
       <th scope="col">Code-a-long</th>
       <th scope="col">Homework</th>
       <th scope="col">Group Practice Problems</th>
-      <th scope="col">Import into posit.cloud project<br>(run in console)</th>
+      <th scope="col">Import into posit.cloud project<br>(run in <em>terminal</em>)</th>
     </tr>
   </thead>
   <tbody>
@@ -34,12 +34,15 @@ execute:
       </td>
       <td></td>
       <td></td>
-      <td>wget https://github.com/Lewis-and-Clark-Data-Science/Data-in-the-wild/raw/refs/heads/main/zips/module_1.1.zip && unzip module_1.1.zip && rm module_1.1.zip</td>
+      <td><div class='wget'>wget https://github.com/Lewis-and-Clark-Data-Science/Data-in-the-wild/raw/refs/heads/main/zips/module_1.1.zip && unzip module_1.1.zip && rm module_1.1.zip</div></td>
     </tr>
     <tr>
       <th scope="row">1.2</th>
       <td>Variables, functions, loading data</td>
-      <td><a href="modules/module_1/module_1.2/code-a-long-1.2.qmd">code-a-long-1.2.qmd</a></td>
+      <td>
+        <a href="modules/module_1/module_1.2/code-a-long-1.2.qmd">blank</a> | 
+        <a href="modules/module_1/module_1.2/code-a-long-1.2-key.qmd">key</a>
+      </td>
       <td>homework-1.2.qmd</td>
       <td>practice-problems-1.2.qmd</td>
       <td></td>
@@ -63,3 +66,43 @@ execute:
   </tbody>
 </table>
 ```
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const commandCells = document.querySelectorAll('table td div[class^="wget"]');
+
+    commandCells.forEach(cell => {
+      cell.style.cursor = 'pointer';
+      cell.style.position = 'relative'; // Needed for positioning the message
+
+      cell.addEventListener('click', function() {
+        const commandText = this.textContent;
+        const feedbackElement = document.createElement('span');
+        feedbackElement.textContent = 'Copied!';
+        feedbackElement.style.position = 'absolute';
+        feedbackElement.style.right = '5px'; // Adjust as needed
+        feedbackElement.style.top = '50%';
+        feedbackElement.style.transform = 'translateY(-50%)';
+        feedbackElement.style.opacity = '0';
+        feedbackElement.style.transition = 'opacity 0.5s ease-in-out';
+        feedbackElement.style.pointerEvents = 'none'; // Prevent blocking clicks
+
+        this.appendChild(feedbackElement);
+
+        // Fade in
+        setTimeout(() => {
+          feedbackElement.style.opacity = '1';
+        }, 10);
+
+        // Fade out and remove
+        setTimeout(() => {
+          feedbackElement.style.opacity = '0';
+          setTimeout(() => {
+            feedbackElement.remove();
+          }, 500); // Wait for the fade out to complete
+        }, 1500); // Adjust the display duration
+      });
+    });
+  });
+</script>
