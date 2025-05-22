@@ -56,7 +56,10 @@ execute:
     <tr>
       <th scope="row">1.3</th>
       <td>Analyzing class data set</td>
-      <td>code-a-long-1.3.qmd</td>
+      <td>
+        <a href="modules/module_1/module_1.3/code-a-long-1.3.qmd">blank</a> | 
+        <a href="modules/module_1/module_1.3/code-a-long-1.3-key.qmd">key</a>
+      </td>
       <td>homework-1.3.qmd</td>
       <td>practice-problems-1.3.qmd</td>
       <td></td>
@@ -74,41 +77,3 @@ execute:
 ```
 
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const commandCells = document.querySelectorAll('table td div[class^="wget"]');
-
-    commandCells.forEach(cell => {
-      cell.style.cursor = 'pointer';
-      cell.style.position = 'relative'; // Needed for positioning the message
-
-      cell.addEventListener('click', function() {
-        const commandText = this.textContent;
-        const feedbackElement = document.createElement('span');
-        feedbackElement.textContent = 'Copied!';
-        feedbackElement.style.position = 'absolute';
-        feedbackElement.style.right = '5px'; // Adjust as needed
-        feedbackElement.style.top = '50%';
-        feedbackElement.style.transform = 'translateY(-50%)';
-        feedbackElement.style.opacity = '0';
-        feedbackElement.style.transition = 'opacity 0.5s ease-in-out';
-        feedbackElement.style.pointerEvents = 'none'; // Prevent blocking clicks
-
-        this.appendChild(feedbackElement);
-
-        // Fade in
-        setTimeout(() => {
-          feedbackElement.style.opacity = '1';
-        }, 10);
-
-        // Fade out and remove
-        setTimeout(() => {
-          feedbackElement.style.opacity = '0';
-          setTimeout(() => {
-            feedbackElement.remove();
-          }, 500); // Wait for the fade out to complete
-        }, 1500); // Adjust the display duration
-      });
-    });
-  });
-</script>

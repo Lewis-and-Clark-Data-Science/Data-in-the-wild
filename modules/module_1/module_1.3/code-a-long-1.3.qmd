@@ -1,23 +1,16 @@
 ---
-title: "R Notebook"
-output: html_notebook
+title: "Analyzing class data set"
+author: "Jeremy McWilliams"
+format: html
 ---
 
-# Analyze Data with R
-
-## September 14th, 2022
-
-### Goals
+### Learning Objectives
 
 -   Continue gaining practice loading and using data sets in R
 
 -   Create subsets of data based upon certain conditions (a.k.a. filtering)
 
 -   Learn how to generate summary statistics using the group_by/summarize functions
-
-### Homework
-
-`problem-set-week3.Rmd` is due to Moodle on Thursday, September 15th, at midnight. Carefully follow the instructions at the top of that document so you download, rename, and submit the correct file.
 
 ### Loading Data
 
@@ -158,11 +151,12 @@ The Tidyverse introduced a new convention to R called the "pipe":
 
 The purpose of the pipe is to string functions and data together. You can think of it as sort of the glue that joins pieces of an assembly line together. Another way to think of it is to read it as "AND THEN".
 
-Below we can rewrite a command using the filter function with the pipe. After the assignment symbol (\<-) we start with the data set, followed by the pipe, followed by the filter function. What's different about the arguments in the filter function in this case?
+Below we can rewrite a command using the filter function with the pipe. After the assignment symbol (\<-) we start with the data set, followed by the pipe, followed by the filter function. It's common practice to put the pipe at the end of one command, then indent the command it's pointing to on the next line. What's different about the arguments in the filter function in this case?
 
 ```{r}
 
-uaStudents2<-teamAntarcticaData %>% filter(school=="University of Arizona")
+uaStudents2<-teamAntarcticaData %>% 
+  filter(school=="University of Arizona")
 
 uaStudents2
 
@@ -193,7 +187,8 @@ Let's say we want to calculate the mean and standard deviation of self-reported 
 
 ```{r}
 
-coldSummary<-teamAntarcticaData %>% group_by(school) %>% 
+coldSummary<-teamAntarcticaData %>% 
+  group_by(school) %>% 
   summarize(avgCold=mean(cold), sdCold=sd(cold))
 
 coldSummary
@@ -235,7 +230,8 @@ totalRows<-nrow(teamAntarcticaData)
 
 
 # n() generates the count of responses per/group
-swimmingPercentage<-teamAntarcticaData %>% group_by(swim) %>% 
+swimmingPercentage<-teamAntarcticaData %>% 
+  group_by(swim) %>% 
   summarise(percent=n()/totalRows)
 
 swimmingPercentage
@@ -250,5 +246,3 @@ Below, calculate the percentage of responses for each of the different parka col
 
 
 ```
-
-**Homework**: `problem-set-week3.Rmd` is **due Thursday, September 15th, at midnight**. Carefully follow the instructions at the top of that file on how to complete, download, and submit the file.
