@@ -75,10 +75,16 @@ execute:
     <tr>
       <th scope="row">1.4</th>
       <td>Analyzing external data set</td>
-      <td>code-a-long-1.4.qmd</td>
-      <td>homework-1.4.qmd</td>
+      <td>
+        <a href="modules/module_1/module_1.4/code-a-long-1.4.qmd">blank</a> | 
+        <a href="modules/module_1/module_1.4/code-a-long-1.4-key.qmd">key</a>
+      </td>
+      <td>
+        <a href="modules/module_1/module_1.4/homework-1.4.qmd">blank</a> | 
+        <a href="modules/module_1/module_1.4/homework-1.4-key.qmd">key</a>
+      </td>
       <td></td>
-      <td></td>
+      <td><div class='wget'>wget https://github.com/Lewis-and-Clark-Data-Science/Data-in-the-wild/raw/refs/heads/main/zips/module_1.4.zip && unzip module_1.4.zip && rm module_1.4.zip</div></td>
     </tr>
   </tbody>
 </table>

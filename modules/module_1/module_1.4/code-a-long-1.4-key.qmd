@@ -1,24 +1,17 @@
 ---
-title: "Module 1, Introduction to the `tidyverse`"
+title: "Analyzing external data set"
 author: "Ethan Davis, Keaton Wilson, Ellen Bledsoe"
-date: "12/4/2019, revised August 2022"
-output:
-  html_document: default
+format: html
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Real-world data and the `tidyverse`
 
-```{r}
-# load the tidyverse
-library(tidyverse)
 
-```
 
-## Learning Outcomes
+### Learning Outcomes
 
 -   Students will be able to use some functions of the tidyverse: `select`, `filter`, `mutate`, `summarize` and the pipe `%>%`.
 -   Students will be able to explore and summarize complex, real-world data
@@ -47,7 +40,12 @@ library(tidyverse)
 
 ### More practice exploring and summarizing data
 
-### Station Data
+
+```{r}
+# load the tidyverse
+library(tidyverse)
+
+```
 
 To review the `tidyverse` syntax, we're going to use a real data set on weather measurements in Antarctica. It contains weather measurements from many climate stations over the course of a year.
 
@@ -68,13 +66,13 @@ The `tidyverse` offers a great function called `glimpse()` that lets us take a q
 glimpse(stationData)
 
 # str(data)
-#str(stationData)
+str(stationData)
 
 # head(data, n) gives us the first n rows
-#head(stationData, 10)
+head(stationData, 10)
 ```
 
-## `select()` columns
+### `select()` columns
 
 Now let's introduce a new function, `select()`. The utility of select isn't entirely new to you. It operates in a similar way to the `$`, but with a bit more power. Select allows us to pick out specific columns from our data. You can use names or their position in the data frame. Unlike with `$`, with `select`, we can easily select multiple columns.
 
@@ -115,7 +113,7 @@ select(stationData, temp, wind_speed, humidity)
 select(stationData, -wind_direction)
 ```
 
-## `filter()` rows
+### `filter()` rows
 
 To review, `filter()` allows you filter rows by certain conditions. Rows the meet the conditions are kept, while rows that do not are "filtered" out.
 
@@ -195,7 +193,7 @@ filter(stationData, station_id=="ag4q3h")
 ag <- filter(stationData, station_id=="ag4q3h")
 ```
 
-## Let's practice using `select()` and `filter()`
+### Let's practice using `select()` and `filter()`
 
 Working with the climate data, construct a small set of code that does the following:
 
@@ -214,7 +212,7 @@ cold <- filter(slim, station_id=="ag4q3h", temp < -22)
 cold
 ```
 
-## The pipe `%>%`
+### The pipe `%>%`
 
 You can use the pipe operator to chain tidyverse functions together. You can think of the pipe as automatically sending the output from the first line into the next line as the input.
 
@@ -302,6 +300,6 @@ stationData %>%
   
 ```
 
-The above will be a major part of the homework this week!!
+
 
 What are good/bad columns to group by? Try summarizing the mean temperature, grouping by different combinations of columns. Talk with your neighbors about which columns might or might not work well.
