@@ -86,6 +86,29 @@ execute:
       <td></td>
       <td><div class='wget'>wget https://github.com/Lewis-and-Clark-Data-Science/Data-in-the-wild/raw/refs/heads/main/zips/module_1.4.zip && unzip module_1.4.zip && rm module_1.4.zip</div></td>
     </tr>
+    
+    <th scope="row">2.1</th>
+      <td>Introduction to Data Visualization</td>
+      <td>
+        <a href="modules/module_2/module_2.1/code-a-long-2.1.qmd">blank</a> | 
+        <a href="modules/module_2/module_2.1/code-a-long-2.1-key.qmd">key</a>
+      </td>
+      <td>
+        <a href="">blank</a> | 
+        <a href="">key</a>
+      </td>
+      <td>
+        <a href="">blank</a> | 
+        <a href="">key</a>
+      </td>
+      <td>
+      <div class='wget'></div>
+      </td>
+    </tr>
+    
+    
+    
+    
   </tbody>
 </table>
 ```
