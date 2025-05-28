@@ -1,34 +1,29 @@
 ---
-author: Mila Pruiett
-title: "Penguin Practice No2"
-output: pdf_document
+title: "Practice Problems 1.3 Key"
+format: html
 ---
 
-# In-class practice with ggplot
 
-### Your Name (replace me)
 
-### September 30, 2022
 
-For each plot, be sure to give accurate and descriptive labels!
-
-Remember: you can reference *food_gone_bad.Rmd*, the ggplot-cheatsheet.pdf, and consult Google for help with commands!
-
-First we need to load the penguin data set, just like we have before. The dataset will be called *penguins* This data was collected by real scientists! Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network.
+First we need to load the penguin data set, just like we have before. The data set will be called *penguins* This data was collected by real scientists! Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network.
 
 ```{r}
 library(palmerpenguins)
+penguins<-palmerpenguins::penguins
 penguins
+
 library(tidyverse) # to make tidyverse commands available 
+
 ```
 
-There are three different species of penguins in this dataset. We can see from the photo below that they may have different body dimensions. We will be using data visualizations to explore some of these differences.
+There are three different species of penguins in this data set. We can see from the photo below that they may have different body dimensions. We will be using data visualizations to explore some of these differences.
 
-![](penguins.jpg){width="400"}
+![](penguins.jpg){width="600"}
 
 Remember
 
-1.  Create a histogram of body mass for all penguin species. Using comments, write a description of what this histogram shows and what bin number means.
+1.  Create a histogram of body mass for all penguin species. Using comments, write a description of what this histogram shows.
 
 ```{r}
 ggplot(data = penguins, mapping=aes(x=body_mass_g)) +
@@ -37,32 +32,35 @@ ggplot(data = penguins, mapping=aes(x=body_mass_g)) +
        x = "body mass (g)", 
        y = "frequency")
 
-# this histogram shows a d
+# this histogram shows a distribution of the variable body_mass_g
 ```
 
 2.  Create a histogram of body mass, with each species in a different color. What does this show us about the different species? Which species do you think has the greatest body mass?
 
 ```{r}
-ggplot(data = penguins, mapping=aes(x=body_mass_g, fill=species, alpha=0.5)) +
+
+ggplot(data = penguins, mapping=aes(x=body_mass_g, fill=species)) +
   geom_histogram() +
   labs(title="Distribution of body mass by species", 
        x = "body mass (g)", 
        y = "frequency")
+
+# Gentoo tend to have a larger body mass than Adelie and Chinstrap penguins.
+
 ```
 
-3.  Now let's find out! Create a bar graph with the average body mass for each penguin species. (Don't forget about the NAs in the dataset) Which one has the greatest average body mass? How does that compare with what you thought looking at the histogram?
+3.  Now let's find out! Create a bar graph with the average body mass for each penguin species. (Don't forget about the NAs in the data set) Which one has the greatest average body mass? How does that compare with what you thought looking at the histogram?
 
 ```{r}
 penguinMass <- penguins %>% 
   group_by(species) %>% 
-  summarize(avgMass = mean(body_mass_g, na.rm=T))
+  summarize(avgMass = mean(body_mass_g, na.rm=TRUE))
 
 ggplot(data=penguinMass, mapping=aes(x=species, y=avgMass, fill = species)) +
   geom_bar(stat="identity")+
   labs(title="Mass by Species", 
-       y = "Average body mass (g)", x = "species")
-
-
+       y = "Average body mass (g)", 
+       x = "species")
 ```
 
 4.  Create a visualization that will help answer the question: Do heavier penguins have longer flippers? Think about how many variables you have and the best way to present this data. Color by species.
@@ -82,7 +80,9 @@ ggplot(data = penguins, mapping = aes(x=body_mass_g, y = flipper_length_mm, colo
 ```{r}
 ggplot(data = penguins, 
        mapping = aes(x=bill_length_mm, 
-                                      y = flipper_length_mm, shape = species, color=species)) +
+                     y = flipper_length_mm, 
+                     shape = species, 
+                     color=species)) +
   geom_point() +
   labs(title = "Penguins with longer bills tend to have longer flippers", 
        x = "bill length (mm)", 
@@ -116,7 +116,7 @@ ggplot(data=penguinMassBySexAndSp, mapping=aes(x=sex, y=avgMass, fill = sex)) +
   facet_wrap(~ species)
 ```
 
-8.There is so much option in ggplot for customizing your plots and so many interesting relationships between variables to explore! Create any data visualization you like of the palmer penguin dataset, customizing it in at least one way. Here are some online resources for customization <https://ggplot2-book.org/polishing.html>, <http://www.sthda.com/english/wiki/be-awesome-in-ggplot2-a-practical-guide-to-be-highly-effective-r-software-and-data-visualization> (scroll to the bottom to see their style guide).
+8.  There is so much option in ggplot for customizing your plots and so many interesting relationships between variables to explore! Create any data visualization you like of the palmer penguin data set, customizing it in at least one way. Here are some online resources for customization <https://ggplot2-book.org/polishing.html>, <http://www.sthda.com/english/wiki/be-awesome-in-ggplot2-a-practical-guide-to-be-highly-effective-r-software-and-data-visualization> (scroll to the bottom to see their style guide).
 
 Think about how many variables you are graphing (one or two), what kind of variables they are (categorical or numerical), and what question your viz will explore!
 
@@ -124,7 +124,7 @@ Think about how many variables you are graphing (one or two), what kind of varia
 
 ```
 
-9.  Create a a pie chart, showing the percentage of the dataset each penguin species comprises. (you definitely will need to use google). In data science, are pie charts a good idea? Take a look [here](https://medium.com/analytics-vidhya/dont-use-pie-charts-in-data-analysis-6c005723e657), and explain your answer.
+9.  Create a a pie chart, showing the percentage of the data set each penguin species comprises. (you definitely will need to use google). In data science, are pie charts a good idea? Take a look [here](https://medium.com/analytics-vidhya/dont-use-pie-charts-in-data-analysis-6c005723e657), and explain your answer.
 
 ```{r}
 # first we need to calculate the number of penguins of each species in the dataset

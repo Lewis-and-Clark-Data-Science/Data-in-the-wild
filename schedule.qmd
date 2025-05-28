@@ -98,11 +98,11 @@ execute:
         <a href="modules/module_2/module_2.1/homework-2.1-key.qmd">key</a>
       </td>
       <td>
-        <a href="">blank</a> | 
-        <a href="">key</a>
+        <a href="modules/module_2/module_2.1/practice-problems-2.1.qmd">blank</a> | 
+        <a href="modules/module_2/module_2.1/practice-problems-2.1-key.qmd">key</a>
       </td>
       <td>
-      <div class='wget'></div>
+      <div class='wget'>wget https://github.com/Lewis-and-Clark-Data-Science/Data-in-the-wild/raw/refs/heads/main/zips/module_2.1.zip && unzip module_2.1.zip && rm module_2.1.zip</div>
       </td>
     </tr>
     
