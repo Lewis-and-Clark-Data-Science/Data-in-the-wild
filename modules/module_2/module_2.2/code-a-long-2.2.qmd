@@ -1,7 +1,15 @@
 ---
-title: "Boxplots, bar plots, and error bars"
+title: "Code-a-long 2.2"
 output: pdf_document
 ---
+
+### Learning Outcomes
+
+
+-   Students will be able to use ggplot to generate box plots.
+-   Students will be able to apply error bars to box plots and bar plots.
+
+
 
 ```{r}
 library(tidyverse)
@@ -21,7 +29,6 @@ penguins
 Strategy: Use geom_boxplot(), and in the aes function, set x equal to a categorical column, which will automatically group them. For the horizontal lines (error bars), add stat_boxplot(geom = "errorbar").
 
 ```{r}
-
 
 
 

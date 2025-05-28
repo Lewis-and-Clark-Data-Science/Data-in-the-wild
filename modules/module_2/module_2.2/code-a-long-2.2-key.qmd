@@ -1,9 +1,15 @@
 ---
-title: "Boxplots, bar plots, and error bars"
-output: 
-  html_document:
-    css: "style.css"
+title: "Code-a-long 2.2"
+output: pdf_document
 ---
+
+### Learning Outcomes
+
+
+-   Students will be able to use ggplot to generate box plots.
+-   Students will be able to apply error bars to box plots and bar plots.
+
+
 
 ```{r}
 library(tidyverse)
@@ -24,14 +30,12 @@ Strategy: Use geom_boxplot(), and in the aes function, set x equal to a categori
 
 ```{r}
 
-
 ggplot(data=penguins, mapping=aes(x=species, y=bill_length_mm, fill=species))+
   stat_boxplot(geom="errorbar")+
   geom_boxplot()+
   labs(title="Distribution of Penguin Bill lengths by Species",
-       x="Species", y="Bill Length (mm)")
-
-
+       x="Species", 
+       y="Bill Length (mm)")
 
 
 
@@ -53,14 +57,11 @@ groupedBillLength
 ggplot(data=groupedBillLength, mapping=aes(x=species, y=avgBillLength, fill=species))+
   geom_bar(stat="identity")+
   geom_errorbar(mapping=aes(ymin=avgBillLength-sdBillLength, 
-                            ymax=avgBillLength+sdBillLength), width=0.2)+
+                            ymax=avgBillLength+sdBillLength), 
+                width=0.2)+
   labs(title="Average Bill Length by Species", 
        x="Species", 
        y="Bill Length (mm)")
-
-
-
-
 
 
 ```
@@ -77,7 +78,7 @@ ggplot(data=penguins, mapping=aes(x=species, y=body_mass_g, fill=species))+
   geom_boxplot()+
   labs(title="Distribution of Penguin Mass by Species",
        x="Species", y="Mass (g)")
-  
+
 
 ```
 
@@ -85,7 +86,6 @@ Create a bar plot comparing penguin mass among species. Include error bars (+/- 
 
 ```{r}
 # create bar plot below
-
 
 groupedMass<- penguins %>% 
   group_by(species) %>%
@@ -97,8 +97,12 @@ groupedMass
 ggplot(data=groupedMass, mapping=aes(x=species, y=avgMass, fill=species))+
   geom_bar(stat="identity")+
   geom_errorbar(mapping=aes(ymin=avgMass-sdMass, 
-                            ymax=avgMass+sdMass), width=0.2)+
-  labs(title="Average Penguin Mass by Species", x="Species", y="Mass (g)")
+                            ymax=avgMass+sdMass), 
+                width=0.2)+
+  labs(title="Average Penguin Mass by Species", 
+       x="Species", 
+       y="Mass (g)")
+
 
 
 
