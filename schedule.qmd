@@ -94,8 +94,8 @@ execute:
         <a href="modules/module_2/module_2.1/code-a-long-2.1-key.qmd">key</a>
       </td>
       <td>
-        <a href="">blank</a> | 
-        <a href="">key</a>
+        <a href="modules/module_2/module_2.1/homework-2.1.qmd">blank</a> | 
+        <a href="modules/module_2/module_2.1/homework-2.1-key.qmd">key</a>
       </td>
       <td>
         <a href="">blank</a> | 

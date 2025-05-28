@@ -1,0 +1,74 @@
+---
+title: "Homework Module 2.1"
+output: html
+---
+
+
+### Your Name
+
+### Date
+
+
+
+In the questions below, use R code to answer questions. For any non-coding questions, give your answer as a comment.
+
+Run this code chunk first, to make the data set from the code along is available as the variable `sick`:
+
+```{r}
+library(tidyverse)
+sick<-read_csv("sick_data.csv")
+```
+
+1.  What does "gg" in "ggplot" stand for? What are the three components of data visualizations?
+
+```{r}
+
+
+
+```
+
+2.   Create a histogram of the distribution of team member weights with ggplot. Make sure you add descriptive labels.
+
+```{r}
+
+
+
+
+```
+
+3.  Create a scatter plot displaying participant weight with percent plant intake using ggplot. Label axes appropriately.
+
+```{r}
+
+
+
+
+```
+
+4.  Describe why you might use a histogram, scatter plot, or bar plot (i.e. what is the purpose of each?).
+
+```{r}
+
+
+
+```
+
+5.  Generate a bar plot showing the average fish consumption among those who specialize in Management, Genetics, and Medicine. Include labels, and use the "fill" attribute to generate colors and a legend.
+
+```{r}
+
+
+
+
+```
+
+
+6. For each of the three plots above, write code to save the files to "histogram.jpg", "scatterplot.jpg", and "barplot.jpg". (Hint: assign each plot to a variable as part of your answer)
+
+```{r}
+
+
+
+
+
+```
