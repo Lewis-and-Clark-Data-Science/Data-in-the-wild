@@ -7,4 +7,22 @@ execute:
   warning: false
 ---
 
-\##
+### Import a submodule into a posit.cloud project:
+
+1.  In a posit.cloud workspace, create a new project:
+
+![](images/createProject.png){fig-align="left" width="509"}
+
+2.  On this site, navigate to the [content page](content.qmd). For the sub module you want to import, highlight and copy the terminal scripts in the far-right column.
+
+![](images/highlightShellScripts.png){fig-align="left" width="623"}
+
+3.  In the lower-left window if your posit.cloud project, select the Terminal tab, and paste the terminal scripts. Press \<return\>.
+
+![](images/pasteInTerminal.png){fig-align="left" width="539"}
+
+4.  The sub module files should now appear in your Files tab in the lower-right window.
+
+![](images/filesAppear.png){fig-align="left" width="487"}
+
+5.  Keep in mind that these files include answer keys, which you probably won't want to make available to your students. You may want to download, then delete these files from the project prior to turning the project into an Assignment for your students.

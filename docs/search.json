@@ -14,7 +14,7 @@
     "href": "using.html",
     "title": "Using this content",
     "section": "",
-    "text": "##",
+    "text": "Import a submodule into a posit.cloud project:\n\nIn a posit.cloud workspace, create a new project:\n\n\n\n\n\n\n\nOn this site, navigate to the content page. For the sub module you want to import, highlight and copy the terminal scripts in the far-right column.\n\n\n\n\n\n\n\nIn the lower-left window if your posit.cloud project, select the Terminal tab, and paste the terminal scripts. Press &lt;return&gt;.\n\n\n\n\n\n\n\nThe sub module files should now appear in your Files tab in the lower-right window.\n\n\n\n\n\n\n\nKeep in mind that these files include answer keys, which you probably won’t want to make available to your students. You may want to download, then delete these files from the project prior to turning the project into an Assignment for your students.",
     "crumbs": [
       "Using this content"
     ]
