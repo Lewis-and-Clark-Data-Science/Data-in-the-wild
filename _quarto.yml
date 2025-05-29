@@ -15,7 +15,8 @@ website:
     contents:
       - href: index.qmd
       - href: using.qmd
-      - href: schedule.qmd
+      - href: modules.qmd
+      - href: content.qmd
 
 
 

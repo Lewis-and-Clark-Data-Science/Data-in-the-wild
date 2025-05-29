@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Mila Pruiett">
 
-<title>Module 3: ANOVA – Data in the Wild, Lewis &amp; Clark</title>
+<title>Modules – Data in the Wild, Lewis &amp; Clark</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,61 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-b35420778b69c827b0963152a70aa31c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-b35420778b69c827b0963152a70aa31c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,35 +68,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -144,10 +79,10 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../images/ditw.png" alt="" class="navbar-logo">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/ditw.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Data in the Wild, Lewis &amp; Clark</span>
     </a>
   </div>
@@ -161,33 +96,39 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Module 3: ANOVA</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./modules.html">Modules</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data in the wild</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../using.html" class="sidebar-item-text sidebar-link">
+  <a href="./using.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using this content</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../content.html" class="sidebar-item-text sidebar-link">
+  <a href="./modules.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./content.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Content</span></a>
   </div>
 </li>
@@ -201,38 +142,26 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#statistical-inference-and-anovas" id="toc-statistical-inference-and-anovas" class="nav-link active" data-scroll-target="#statistical-inference-and-anovas">Statistical inference and ANOVAs</a>
+  <li><a href="#module-1" id="toc-module-1" class="nav-link active" data-scroll-target="#module-1">Module 1</a>
   <ul class="collapse">
-  <li><a href="#wrapping-up-t-tests" id="toc-wrapping-up-t-tests" class="nav-link" data-scroll-target="#wrapping-up-t-tests">Wrapping up t-tests</a>
-  <ul class="collapse">
-  <li><a href="#anova-analysis-of-variance" id="toc-anova-analysis-of-variance" class="nav-link" data-scroll-target="#anova-analysis-of-variance">ANOVA: <strong>AN</strong>alysis <strong>O</strong>f <strong>VA</strong>riance</a></li>
-  <li><a href="#when-can-i-use-an-anova-why-would-i" id="toc-when-can-i-use-an-anova-why-would-i" class="nav-link" data-scroll-target="#when-can-i-use-an-anova-why-would-i">When can I use an ANOVA? Why would I?</a></li>
-  <li><a href="#assumptions-of-anova" id="toc-assumptions-of-anova" class="nav-link" data-scroll-target="#assumptions-of-anova">Assumptions of ANOVA</a></li>
-  <li><a href="#the-null-and-alternative-hypotheses" id="toc-the-null-and-alternative-hypotheses" class="nav-link" data-scroll-target="#the-null-and-alternative-hypotheses">The null and alternative hypotheses</a></li>
-  <li><a href="#lets-jump-in-with-an-example" id="toc-lets-jump-in-with-an-example" class="nav-link" data-scroll-target="#lets-jump-in-with-an-example">Let’s jump in with an example</a></li>
-  </ul></li>
+  <li><a href="#module-1.1" id="toc-module-1.1" class="nav-link" data-scroll-target="#module-1.1">Module 1.1</a></li>
+  <li><a href="#module-1.2" id="toc-module-1.2" class="nav-link" data-scroll-target="#module-1.2">Module 1.2</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Module 3: ANOVA</h1>
+<h1 class="title">Modules</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Mila Pruiett </p>
-          </div>
-  </div>
     
   
     
@@ -243,176 +172,91 @@ window.Quarto = {
 </header>
 
 
-<section id="statistical-inference-and-anovas" class="level1">
-<h1>Statistical inference and ANOVAs</h1>
-<section id="wrapping-up-t-tests" class="level2">
-<h2 class="anchored" data-anchor-id="wrapping-up-t-tests">Wrapping up t-tests</h2>
-<p>Last week we used t-tests to think about which bay we should go fishing to minimize our impact on leopard seals.</p>
-<ol type="1">
-<li>Are the bays equal in their fish populations?</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<section id="module-1" class="level2">
+<h2 class="anchored" data-anchor-id="module-1">Module 1</h2>
+<div class="card my-4">
+  <div class="card-header bg-primary text-white">Week Overviews</div>
+  <div class="card-body">
+    <strong>Week 1:</strong> Introduction to Course – meet the team, understand the mission.<br>
+    <strong>Weeks 2–4:</strong> We're in Antarctica!<br>
+    Practice:
+    <ul>
+      <li>Exploring and summarizing data about our new colleagues</li>
+      <li>Exploring weather station data</li>
+      <li>Learning R and RStudio, basic data manipulation</li>
+    </ul>
+  </div>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fish <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"arctic-fish.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 640 Columns: 5
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (2): time, bay
-dbl  (2): net, num_fish
-date (1): date
 
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="card my-4">
+  <div class="card-header bg-info text-white">Antarctica Narrative</div>
+  <div class="card-body">
+    We start en route to Antarctica! Students took a survey to get to know teammates and pick a mascot.
+    We study weather data from Antarctic research stations and use the Palmer Penguin dataset for practice.
+  </div>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fish, <span class="fu">aes</span>(bay, num_fish, <span class="at">fill =</span> bay)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ANOVA-Code_Along_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<hr>
+<section id="module-1.1" class="level3">
+<h3 class="anchored" data-anchor-id="module-1.1">Module 1.1</h3>
+<div class="card my-3">
+  <div class="card-header bg-secondary text-white">Concepts</div>
+  <div class="card-body">
+    <ul>
+      <li>What is data science and how does it interact with daily life?</li>
+      <li>What is RStudio and how to navigate it</li>
+      <li>Assigning variables</li>
+    </ul>
+  </div>
 </div>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">data =</span> fish, num_fish <span class="sc">~</span> bay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Welch Two Sample t-test
 
-data:  num_fish by bay
-t = -1.7366, df = 630.63, p-value = 0.08295
-alternative hypothesis: true difference in means between group Marguarite and group Wilhelmenia is not equal to 0
-95 percent confidence interval:
- -0.54602183  0.03352183
-sample estimates:
- mean in group Marguarite mean in group Wilhelmenia 
-                  3.90625                   4.16250 </code></pre>
+<div class="card my-3">
+  <div class="card-header bg-light">Week Schedule</div>
+  <div class="card-body">
+    <ul>
+      <li>🗓️ <strong>Day 1:</strong> Welcome! Survey completed. Data to be used in Week 2.</li>
+      <li><strong>Day 2:</strong> Discussion on data science and society; reflection prompt.</li>
+      <li><strong>Day 3:</strong> Used <code>welcome.Rmd</code> in class for basic RStudio, arithmetic, and variable assignment.</li>
+    </ul>
+  </div>
 </div>
-</div>
-<p>Response:</p>
-<ol start="2" type="1">
-<li>Are the bays equal in their leopard seal populations?</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>seals <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"arctic-seals.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 640 Columns: 5
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (2): time, bay
-dbl  (2): area, num_seals
-date (1): date
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(seals, <span class="fu">aes</span>(bay, num_seals, <span class="at">fill =</span> bay)) <span class="sc">+</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ANOVA-Code_Along_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">data =</span> seals, num_seals <span class="sc">~</span> bay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Welch Two Sample t-test
-
-data:  num_seals by bay
-t = -4.2182, df = 638, p-value = 2.82e-05
-alternative hypothesis: true difference in means between group Marguarite and group Wilhelmenia is not equal to 0
-95 percent confidence interval:
- -1.0258729 -0.3741271
-sample estimates:
- mean in group Marguarite mean in group Wilhelmenia 
-                     5.25                      5.95 </code></pre>
-</div>
-</div>
-<p>Response:</p>
-<ol start="3" type="1">
-<li>What should we do?</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="babySeal.jpg" class="img-fluid figure-img"></p>
-<figcaption>Cute Seal</figcaption>
-</figure>
-</div>
-<section id="anova-analysis-of-variance" class="level3">
-<h3 class="anchored" data-anchor-id="anova-analysis-of-variance">ANOVA: <strong>AN</strong>alysis <strong>O</strong>f <strong>VA</strong>riance</h3>
+<hr>
 </section>
-<section id="when-can-i-use-an-anova-why-would-i" class="level3">
-<h3 class="anchored" data-anchor-id="when-can-i-use-an-anova-why-would-i">When can I use an ANOVA? Why would I?</h3>
-<ul>
-<li><p>Independent variable is categorical and the response is numerical</p></li>
-<li><p>Goal: to compare means among groups</p></li>
-</ul>
-</section>
-<section id="assumptions-of-anova" class="level3">
-<h3 class="anchored" data-anchor-id="assumptions-of-anova">Assumptions of ANOVA</h3>
-<ul>
-<li>Data are “normally distributed” =&gt; look at the histogram</li>
-<li>Data are “equally varied” =&gt; standard deviations reasonably similar</li>
-<li>Samples are independent of one another</li>
-</ul>
-</section>
-<section id="the-null-and-alternative-hypotheses" class="level3">
-<h3 class="anchored" data-anchor-id="the-null-and-alternative-hypotheses">The null and alternative hypotheses</h3>
-<p><span class="math inline">\(H_{0}\)</span> (null hypothesis) - The means of the populations we sampled from <strong>are</strong> <strong>all equal:</strong> <span class="math inline">\(\mu{1} = \mu{2} = ... = \mu{i}\)</span></p>
-<p><span class="math inline">\(H_{a}\)</span> (alternative hypothesis) - The means of the populations we sampled from <strong>are not all equal</strong></p>
-</section>
-<section id="lets-jump-in-with-an-example" class="level3">
-<h3 class="anchored" data-anchor-id="lets-jump-in-with-an-example">Let’s jump in with an example</h3>
-<p>We have figured out the best option for minimizing our impact on leopard seals while keeping ourselves fed between two bays: Wilhelmina and Marguerite. But there are more bays! And ideally we would use two or more bays to spread out our fishing efforts among mulitple humped rock cod populations.</p>
-<p>Our team has collected similar data, as we had for Wilhelmina and Marguerite, on four more bays: Emperor, Hope, Sulzberger, and Iceberg.</p>
-<p>We are going to examine the fish populations in class, and you will work with the leapard seals for your homework.</p>
-<ol type="1">
-<li>What is it that we want to know about these six bays? Which variable is the independent variable? Which is the dependent?</li>
-</ol>
-<ol start="2" type="1">
-<li>What are our null and alternative hypotheses?</li>
-</ol>
-<ol start="3" type="1">
-<li>Load tidyverse and read in the data</li>
-</ol>
-<p>It’s always a good idea to visualize your data first. This gives you some perspective on the distribution of the data. What type of data viz is best for viewing the distribution of one variable?</p>
-<ol start="4" type="1">
-<li></li>
-</ol>
-<ol start="5" type="1">
-<li>Now let’s calculate some summary statistics. What do you notice?</li>
-</ol>
-<ol start="6" type="1">
-<li>Let’s create a bar graph to compare the summary stats between the groups. Does it seem like the groups are different?</li>
-</ol>
-<ol start="7" type="1">
-<li>Finally, let’s code for the ANOVA.</li>
-</ol>
-<ol start="8" type="1">
-<li>How do we interpret this ANOVA?</li>
-</ol>
-<ol start="9" type="1">
-<li>What is our recommendation for fishing based only off of this information?</li>
-</ol>
-<p>ANOVAs are incredibly useful to tell you if there is a difference in the means of any of the groups. However, they do not tell you which means differ from another. To do that, you need to use a class of tests called Post Hoc Tests. Post hoc tests take into account the problem of running multiple pairwise comparisons, which is the increasing chance of error rates. The most common is Tukey’s HSD, but there are others depending on the specifics of your data set. You don’t need to worry about understanding Tukey’s test, but here I am going to show you how it works and an overview of the interpretation of it.</p>
-<p>Want to nerd out about ANOVAs? I recommend Bio statistical Design and Analysis Using R: <a href="https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99900585075901844" class="uri">https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99900585075901844</a> (p254) A Primer of Ecological Statistics: <a href="https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99141374340101844" class="uri">https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99141374340101844</a></p>
+<section id="module-1.2" class="level3">
+<h3 class="anchored" data-anchor-id="module-1.2">Module 1.2</h3>
+<div class="card my-3">
+  <div class="card-header bg-secondary text-white">Concepts</div>
+  <div class="card-body">
+    <ul>
+      <li>Assigning variables</li>
+      <li>Creating vectors</li>
+      <li>Functions &amp; arguments</li>
+      <li>Loading data from CSV</li>
+      <li>Creating vectors from data columns</li>
+      <li>Calculating mean, median, standard deviation</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card my-3">
+  <div class="card-header bg-light">Week Schedule</div>
+  <div class="card-body">
+    <ul>
+      <li><strong>Day 1:</strong> Labor Day – No class</li>
+      <li><strong>Day 2:</strong> Code-along with <code>introToR.Rmd</code>. Topics: variables, camel case, loading data, central tendency.<br>
+        <strong>Homework:</strong> <code>problemSet1.Rmd</code></li>
+      <li><strong>Day 3:</strong> Group work on <code>penguinPractice1.Rmd</code> in Watzek Library – great collaboration!</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card my-3">
+  <div class="card-header bg-info text-white">Description</div>
+  <div class="card-body">
+    Short week due to Labor Day. Code-along and group practice helped reinforce new skills.
+  </div>
+</div>
 
 
-</section>
 </section>
 </section>
 

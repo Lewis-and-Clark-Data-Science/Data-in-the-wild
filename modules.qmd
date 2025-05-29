@@ -1,0 +1,93 @@
+---
+title: "Modules"
+format: html
+page-layout: full
+---
+
+## Module 1
+```{=html}
+<div class="card my-4">
+  <div class="card-header bg-primary text-white">Week Overviews</div>
+  <div class="card-body">
+    <strong>Week 1:</strong> Introduction to Course – meet the team, understand the mission.<br>
+    <strong>Weeks 2–4:</strong> We're in Antarctica!<br>
+    Practice:
+    <ul>
+      <li>Exploring and summarizing data about our new colleagues</li>
+      <li>Exploring weather station data</li>
+      <li>Learning R and RStudio, basic data manipulation</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card my-4">
+  <div class="card-header bg-info text-white">Antarctica Narrative</div>
+  <div class="card-body">
+    We start en route to Antarctica! Students took a survey to get to know teammates and pick a mascot.
+    We study weather data from Antarctic research stations and use the Palmer Penguin dataset for practice.
+  </div>
+</div>
+```
+---
+
+### Module 1.1
+```{=html}
+<div class="card my-3">
+  <div class="card-header bg-secondary text-white">Concepts</div>
+  <div class="card-body">
+    <ul>
+      <li>What is data science and how does it interact with daily life?</li>
+      <li>What is RStudio and how to navigate it</li>
+      <li>Assigning variables</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card my-3">
+  <div class="card-header bg-light">Week Schedule</div>
+  <div class="card-body">
+    <ul>
+      <li>🗓️ <strong>Day 1:</strong> Welcome! Survey completed. Data to be used in Week 2.</li>
+      <li><strong>Day 2:</strong> Discussion on data science and society; reflection prompt.</li>
+      <li><strong>Day 3:</strong> Used <code>welcome.Rmd</code> in class for basic RStudio, arithmetic, and variable assignment.</li>
+    </ul>
+  </div>
+</div>
+```
+---
+
+### Module 1.2
+```{=html}
+<div class="card my-3">
+  <div class="card-header bg-secondary text-white">Concepts</div>
+  <div class="card-body">
+    <ul>
+      <li>Assigning variables</li>
+      <li>Creating vectors</li>
+      <li>Functions & arguments</li>
+      <li>Loading data from CSV</li>
+      <li>Creating vectors from data columns</li>
+      <li>Calculating mean, median, standard deviation</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card my-3">
+  <div class="card-header bg-light">Week Schedule</div>
+  <div class="card-body">
+    <ul>
+      <li><strong>Day 1:</strong> Labor Day – No class</li>
+      <li><strong>Day 2:</strong> Code-along with <code>introToR.Rmd</code>. Topics: variables, camel case, loading data, central tendency.<br>
+        <strong>Homework:</strong> <code>problemSet1.Rmd</code></li>
+      <li><strong>Day 3:</strong> Group work on <code>penguinPractice1.Rmd</code> in Watzek Library – great collaboration!</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card my-3">
+  <div class="card-header bg-info text-white">Description</div>
+  <div class="card-body">
+    Short week due to Labor Day. Code-along and group practice helped reinforce new skills.
+  </div>
+</div>
+```

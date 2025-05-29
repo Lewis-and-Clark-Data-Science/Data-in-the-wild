@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Mila Pruiett">
+<meta name="author" content="MP &amp; ED">
+<meta name="dcterms.date" content="2022-10-10">
 
-<title>Module 3: ANOVA – Data in the Wild, Lewis &amp; Clark</title>
+<title>Understanding Sick Fish – Data in the Wild, Lewis &amp; Clark</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,35 +105,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -161,7 +133,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Module 3: ANOVA</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Understanding Sick Fish</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -201,17 +173,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#statistical-inference-and-anovas" id="toc-statistical-inference-and-anovas" class="nav-link active" data-scroll-target="#statistical-inference-and-anovas">Statistical inference and ANOVAs</a>
-  <ul class="collapse">
-  <li><a href="#wrapping-up-t-tests" id="toc-wrapping-up-t-tests" class="nav-link" data-scroll-target="#wrapping-up-t-tests">Wrapping up t-tests</a>
-  <ul class="collapse">
-  <li><a href="#anova-analysis-of-variance" id="toc-anova-analysis-of-variance" class="nav-link" data-scroll-target="#anova-analysis-of-variance">ANOVA: <strong>AN</strong>alysis <strong>O</strong>f <strong>VA</strong>riance</a></li>
-  <li><a href="#when-can-i-use-an-anova-why-would-i" id="toc-when-can-i-use-an-anova-why-would-i" class="nav-link" data-scroll-target="#when-can-i-use-an-anova-why-would-i">When can I use an ANOVA? Why would I?</a></li>
-  <li><a href="#assumptions-of-anova" id="toc-assumptions-of-anova" class="nav-link" data-scroll-target="#assumptions-of-anova">Assumptions of ANOVA</a></li>
-  <li><a href="#the-null-and-alternative-hypotheses" id="toc-the-null-and-alternative-hypotheses" class="nav-link" data-scroll-target="#the-null-and-alternative-hypotheses">The null and alternative hypotheses</a></li>
-  <li><a href="#lets-jump-in-with-an-example" id="toc-lets-jump-in-with-an-example" class="nav-link" data-scroll-target="#lets-jump-in-with-an-example">Let’s jump in with an example</a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#in-class-practice-to-understand-why-the-fish-are-sick" id="toc-in-class-practice-to-understand-why-the-fish-are-sick" class="nav-link active" data-scroll-target="#in-class-practice-to-understand-why-the-fish-are-sick">In class practice to understand why the fish are sick</a></li>
   </ul>
 </nav>
     </div>
@@ -220,7 +182,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Module 3: ANOVA</h1>
+<h1 class="title">Understanding Sick Fish</h1>
 </div>
 
 
@@ -230,10 +192,16 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Mila Pruiett </p>
+             <p>MP &amp; ED </p>
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 10, 2022</p>
+    </div>
+  </div>
   
     
   </div>
@@ -243,16 +211,12 @@ window.Quarto = {
 </header>
 
 
-<section id="statistical-inference-and-anovas" class="level1">
-<h1>Statistical inference and ANOVAs</h1>
-<section id="wrapping-up-t-tests" class="level2">
-<h2 class="anchored" data-anchor-id="wrapping-up-t-tests">Wrapping up t-tests</h2>
-<p>Last week we used t-tests to think about which bay we should go fishing to minimize our impact on leopard seals.</p>
-<ol type="1">
-<li>Are the bays equal in their fish populations?</li>
-</ol>
+<section id="in-class-practice-to-understand-why-the-fish-are-sick" class="level1">
+<h1>In class practice to understand why the fish are sick</h1>
+<p>We know that there are tanks whose temperature are below the critical threshold for the immune systems of the fish species we are farming. However, there could be other factors contributing to the numbers of sick fish. After our class brainstormed more factors, the ichthyologists (fish scientists) measured: oxygen concentration and ammonia concentration (a proxy for waste buildup). We are going to look at these factors as well, to ensure we can address all of the factors affecting the fish health.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the tidyverse</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -265,155 +229,138 @@ window.Quarto = {
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fish <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"arctic-fish.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read in the data, sick-fish.csv</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sick <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"sick-fish.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 640 Columns: 5
+<pre><code>Rows: 1000 Columns: 13
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
-chr  (2): time, bay
-dbl  (2): net, num_fish
-date (1): date
+chr  (1): species
+dbl (11): tank_id, avg_daily_temp, num_fish, day_length, tank_volume, size_d...
+lgl  (1): below
 
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fish, <span class="fu">aes</span>(bay, num_fish, <span class="at">fill =</span> bay)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ANOVA-Code_Along_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">data =</span> fish, num_fish <span class="sc">~</span> bay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look at the data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(sick)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-    Welch Two Sample t-test
-
-data:  num_fish by bay
-t = -1.7366, df = 630.63, p-value = 0.08295
-alternative hypothesis: true difference in means between group Marguarite and group Wilhelmenia is not equal to 0
-95 percent confidence interval:
- -0.54602183  0.03352183
-sample estimates:
- mean in group Marguarite mean in group Wilhelmenia 
-                  3.90625                   4.16250 </code></pre>
+<pre><code>Rows: 1,000
+Columns: 13
+$ tank_id          &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16…
+$ species          &lt;chr&gt; "tilapia", "tilapia", "tilapia", "tilapia", "tilapia"…
+$ avg_daily_temp   &lt;dbl&gt; 22.95922, 23.98088, 23.97097, 24.26474, 24.29623, 23.…
+$ num_fish         &lt;dbl&gt; 95, 96, 101, 98, 93, 101, 98, 109, 97, 102, 99, 99, 9…
+$ day_length       &lt;dbl&gt; 9, 11, 11, 10, 10, 11, 12, 10, 10, 10, 9, 11, 11, 10,…
+$ tank_volume      &lt;dbl&gt; 399.6975, 399.8071, 398.8427, 399.8410, 399.7561, 398…
+$ size_day_30      &lt;dbl&gt; 2784.895, 2781.003, 2785.807, 2785.253, 2786.946, 278…
+$ ammonia          &lt;dbl&gt; 0.10561057, 0.09073854, 0.10867733, 0.09421766, 0.093…
+$ density          &lt;dbl&gt; 0.2376798, 0.2401158, 0.2532327, 0.2450974, 0.2326418…
+$ avg_daily_temp_F &lt;dbl&gt; 73.32660, 75.16558, 75.14774, 75.67654, 75.73322, 75.…
+$ below            &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE…
+$ num_sick         &lt;dbl&gt; 63, 18, 12, 0, 5, 11, 11, 0, 55, 23, 7, 65, 61, 62, 6…
+$ oxygen           &lt;dbl&gt; 9.480023, 9.288952, 9.467007, 9.322897, 9.327849, 9.4…</code></pre>
 </div>
 </div>
-<p>Response:</p>
+<p>Our ichthyologist friends told us that density often contributes to the spread of any disease present in a system. We want to look at how density relates to the number of sick fish. Because we are in Antarctica, and obtaining supplies is quite difficult, not all of our tanks are from the same manufacturer and shipment. We have tanks of many different sizes. We know the size of each tank and the number of fish, so we can calculate the density. (Density = number / volume).</p>
+<p>1.Create a variable in the data set for the density of fish per tank. Create a variable in the data set for the percentage of sick fish per tank.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sick <span class="ot">&lt;-</span> sick <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">density =</span> num_fish <span class="sc">/</span> tank_volume)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>sick <span class="ot">&lt;-</span> sick <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">perc_sick =</span> num_sick <span class="sc">/</span> num_fish)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ol start="2" type="1">
-<li>Are the bays equal in their leopard seal populations?</li>
+<li>Create a scatter plot to examine the relationship between density and the percentage of sick fish. In comments, explain why we are looking at the relationship between the density and the number of sick fish in a tank instead of the total number of fish in a given tank and the percentage of sick fish.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>seals <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"arctic-seals.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 640 Columns: 5
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (2): time, bay
-dbl  (2): area, num_seals
-date (1): date
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(seals, <span class="fu">aes</span>(bay, num_seals, <span class="at">fill =</span> bay)) <span class="sc">+</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> sick, <span class="at">mapping =</span> <span class="fu">aes</span>(density, perc_sick, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ANOVA-Code_Along_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Understanding_Sick_Fish_Tilapia_Oxygen_Key_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">data =</span> seals, num_seals <span class="sc">~</span> bay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Welch Two Sample t-test
-
-data:  num_seals by bay
-t = -4.2182, df = 638, p-value = 2.82e-05
-alternative hypothesis: true difference in means between group Marguarite and group Wilhelmenia is not equal to 0
-95 percent confidence interval:
- -1.0258729 -0.3741271
-sample estimates:
- mean in group Marguarite mean in group Wilhelmenia 
-                     5.25                      5.95 </code></pre>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># percentage sick is standardized across all the tank volumes and fish populations, so it puts everything in the same units</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>Response:</p>
-<ol start="3" type="1">
-<li>What should we do?</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="babySeal.jpg" class="img-fluid figure-img"></p>
-<figcaption>Cute Seal</figcaption>
-</figure>
-</div>
-<section id="anova-analysis-of-variance" class="level3">
-<h3 class="anchored" data-anchor-id="anova-analysis-of-variance">ANOVA: <strong>AN</strong>alysis <strong>O</strong>f <strong>VA</strong>riance</h3>
-</section>
-<section id="when-can-i-use-an-anova-why-would-i" class="level3">
-<h3 class="anchored" data-anchor-id="when-can-i-use-an-anova-why-would-i">When can I use an ANOVA? Why would I?</h3>
+<p>In your group, discuss which of the following variables you’d like to examine in more detail.</p>
 <ul>
-<li><p>Independent variable is categorical and the response is numerical</p></li>
-<li><p>Goal: to compare means among groups</p></li>
+<li><p>Temperature</p></li>
+<li><p>Oxygen concentration</p></li>
+<li><p>Ammonia (NH3) concentration</p></li>
 </ul>
-</section>
-<section id="assumptions-of-anova" class="level3">
-<h3 class="anchored" data-anchor-id="assumptions-of-anova">Assumptions of ANOVA</h3>
-<ul>
-<li>Data are “normally distributed” =&gt; look at the histogram</li>
-<li>Data are “equally varied” =&gt; standard deviations reasonably similar</li>
-<li>Samples are independent of one another</li>
-</ul>
-</section>
-<section id="the-null-and-alternative-hypotheses" class="level3">
-<h3 class="anchored" data-anchor-id="the-null-and-alternative-hypotheses">The null and alternative hypotheses</h3>
-<p><span class="math inline">\(H_{0}\)</span> (null hypothesis) - The means of the populations we sampled from <strong>are</strong> <strong>all equal:</strong> <span class="math inline">\(\mu{1} = \mu{2} = ... = \mu{i}\)</span></p>
-<p><span class="math inline">\(H_{a}\)</span> (alternative hypothesis) - The means of the populations we sampled from <strong>are not all equal</strong></p>
-</section>
-<section id="lets-jump-in-with-an-example" class="level3">
-<h3 class="anchored" data-anchor-id="lets-jump-in-with-an-example">Let’s jump in with an example</h3>
-<p>We have figured out the best option for minimizing our impact on leopard seals while keeping ourselves fed between two bays: Wilhelmina and Marguerite. But there are more bays! And ideally we would use two or more bays to spread out our fishing efforts among mulitple humped rock cod populations.</p>
-<p>Our team has collected similar data, as we had for Wilhelmina and Marguerite, on four more bays: Emperor, Hope, Sulzberger, and Iceberg.</p>
-<p>We are going to examine the fish populations in class, and you will work with the leapard seals for your homework.</p>
-<ol type="1">
-<li>What is it that we want to know about these six bays? Which variable is the independent variable? Which is the dependent?</li>
-</ol>
-<ol start="2" type="1">
-<li>What are our null and alternative hypotheses?</li>
-</ol>
+<p>PAUSE. CLASS DISCUSSION OF CHOICES.</p>
 <ol start="3" type="1">
-<li>Load tidyverse and read in the data</li>
+<li>What is your variable and species?</li>
 </ol>
-<p>It’s always a good idea to visualize your data first. This gives you some perspective on the distribution of the data. What type of data viz is best for viewing the distribution of one variable?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># comment it out</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># tilapia and oxygen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Your task is now to learn all about this variable and how it may contribute to the problem. Each person in the group will turn in this .Rmd file as a homework assignment, so be sure to fill out your copy completely. For every visualization, be sure to label the axes clearly (with units) and provide a title. Feel free to customize the appearance as you like.</p>
 <ol start="4" type="1">
-<li></li>
+<li>Create a dataframe with only your fish species.</li>
 </ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tilapiaOnly <span class="ot">&lt;-</span> sick <span class="sc">%&gt;%</span> <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"tilapia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ol start="5" type="1">
-<li>Now let’s calculate some summary statistics. What do you notice?</li>
+<li>Create a histogram of your variable. What is (approximately) the most common value of your variable? One person from each group: put a copy of this histogram to this shared google slide deck to show the class on Wednesday.</li>
 </ol>
+<p>11:30 Class Section: https://docs.google.com/presentation/d/1AYbRlU9NB36EfF4R8C5_nTr0dQyTWpcAPTeSiW7XKhY/edit?usp=sharing</p>
+<p>1:50 Class Section: https://docs.google.com/presentation/d/1CnL45KGLifZypKY9J5uAC8qoXEjEToFmxZSdiy6oKqQ/edit?usp=sharing</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tilapiaOnly, <span class="fu">aes</span>(<span class="at">x =</span> oxygen)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"tilapia + oxygen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Understanding_Sick_Fish_Tilapia_Oxygen_Key_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># most common is around 9.5 but it could be different depending on their bin number. The correct answer is the value with the greatest frequency for their histogram. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ol start="6" type="1">
-<li>Let’s create a bar graph to compare the summary stats between the groups. Does it seem like the groups are different?</li>
+<li>What is the mean and standard deviation of your variable? Add to google slide deck.</li>
 </ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tilapiaOnly <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="fu">mean</span>(oxygen), <span class="fu">sd</span>(oxygen))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  `mean(oxygen)` `sd(oxygen)`
+           &lt;dbl&gt;        &lt;dbl&gt;
+1           9.47        0.188</code></pre>
+</div>
+</div>
 <ol start="7" type="1">
-<li>Finally, let’s code for the ANOVA.</li>
+<li>What is the motivating question? That is, what can your variable tell us about the sick fish? What data visualization will you use to answer this question?</li>
 </ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we want to know if oxygen concentration is related with the percentage of sick fish. I will use a scatterplot. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>PAUSE. SHARE YOUR QUESTION AND PROPOSED ANALYSIS WITH THE GROUP THAT IS STUDYING THE SAME VARIABLE ON THE OTHER FISH SPECIES.</p>
 <ol start="8" type="1">
-<li>How do we interpret this ANOVA?</li>
+<li>Create a visualization to analyze the relationship between fish sickness and your variable. Add this to the google slide deck.</li>
 </ol>
-<ol start="9" type="1">
-<li>What is our recommendation for fishing based only off of this information?</li>
-</ol>
-<p>ANOVAs are incredibly useful to tell you if there is a difference in the means of any of the groups. However, they do not tell you which means differ from another. To do that, you need to use a class of tests called Post Hoc Tests. Post hoc tests take into account the problem of running multiple pairwise comparisons, which is the increasing chance of error rates. The most common is Tukey’s HSD, but there are others depending on the specifics of your data set. You don’t need to worry about understanding Tukey’s test, but here I am going to show you how it works and an overview of the interpretation of it.</p>
-<p>Want to nerd out about ANOVAs? I recommend Bio statistical Design and Analysis Using R: <a href="https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99900585075901844" class="uri">https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99900585075901844</a> (p254) A Primer of Ecological Statistics: <a href="https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99141374340101844" class="uri">https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99141374340101844</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> tilapiaOnly, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> oxygen, <span class="at">y=</span> perc_sick)) <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Understanding_Sick_Fish_Tilapia_Oxygen_Key_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
