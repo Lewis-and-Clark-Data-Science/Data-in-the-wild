@@ -216,6 +216,26 @@
     "text": "Regression Analyses Continued\nWe are going to continue figuring out what environmental parameters are important for the hairgrass (the really awesome vascular plant in the arctic). Last week, we found that hairgrass density was significantly positively correlated with nitrogen content and the average summer temperature. This week, we will explore the other variables in the data set. Each of you will be assigned one variable, and will work in teams. Each person needs to turn in a completed copy of this assignment.\nThe remaining variables are\n\nphosphorous content\npercentage of soil that is rock\nmonthly maximum wind speed in knots\naverage UV index\naverage winter temperature (C)\npenguin density (per 5 sq m within 100 m of the hairgrass quadrants)\n\nWrite your variable here:\nPlease fill out the slide deck below in your group.\n11:30 Class https://docs.google.com/presentation/d/1X9qGtxDMBo4eRk2SY_ogTLZjY6NoxAhbtb4SE3QZKag/edit#slide=id.p\n1:50 Class https://docs.google.com/presentation/d/1EZ9Z1XhR_NMnc1xMuEtOlUuuYi-8gPr52a4bdM8D8IE/edit#slide=id.p\nAs a reminder, you can always look back on past assignments or at the Coding cheat sheet https://docs.google.com/document/d/1CJQdSOXL0gkSZ1Y0h-xR8-fJn0twbglAUpNy8cm-SBQ/edit for reference.\nLoad the tidyverse and read in your data\n\nCreate a scatter plot with the line of best fit for hairgrass density and your variable. Be sure to add a title and label the axes with units.\n\n\nCreate a linear regression with hairgrass density and your variable. What is the null hypothesis?\n\n\nWhat is the formula for the line of best fit?\n\n\nIs your variable significant in predicting hairgrass density? (Is the p-value associated with the F-stat significant at alpha = 0.05?)\n\nHave one person working on this variable upload the results into the slide deck.\nEach person turn in this .Rmd file to moodle during class."
   },
   {
+    "objectID": "modules.html",
+    "href": "modules.html",
+    "title": "Modules",
+    "section": "",
+    "text": "Week Overviews\n  \n    Week 1: Introduction to Course – meet the team, understand the mission.\n    Weeks 2–4: We're in Antarctica!\n    Practice:\n    \n      Exploring and summarizing data about our new colleagues\n      Exploring weather station data\n      Learning R and RStudio, basic data manipulation\n    \n  \n\n\n\n  Antarctica Narrative\n  \n    We start en route to Antarctica! Students took a survey to get to know teammates and pick a mascot.\n    We study weather data from Antarctic research stations and use the Palmer Penguin dataset for practice.\n  \n\n\n\n\n\n  Concepts\n  \n    \n      What is data science and how does it interact with daily life?\n      What is RStudio and how to navigate it\n      Assigning variables\n    \n  \n\n\n\n  Week Schedule\n  \n    \n      🗓️ Day 1: Welcome! Survey completed. Data to be used in Week 2.\n      Day 2: Discussion on data science and society; reflection prompt.\n      Day 3: Used welcome.Rmd in class for basic RStudio, arithmetic, and variable assignment.\n    \n  \n\n\n\n\n\n\n  Concepts\n  \n    \n      Assigning variables\n      Creating vectors\n      Functions & arguments\n      Loading data from CSV\n      Creating vectors from data columns\n      Calculating mean, median, standard deviation\n    \n  \n\n\n\n  Week Schedule\n  \n    \n      Day 1: Labor Day – No class\n      Day 2: Code-along with introToR.Rmd. Topics: variables, camel case, loading data, central tendency.\n        Homework: problemSet1.Rmd\n      Day 3: Group work on penguinPractice1.Rmd in Watzek Library – great collaboration!\n    \n  \n\n\n\n  Description\n  \n    Short week due to Labor Day. Code-along and group practice helped reinforce new skills.",
+    "crumbs": [
+      "Modules"
+    ]
+  },
+  {
+    "objectID": "modules.html#module-1",
+    "href": "modules.html#module-1",
+    "title": "Modules",
+    "section": "",
+    "text": "Week Overviews\n  \n    Week 1: Introduction to Course – meet the team, understand the mission.\n    Weeks 2–4: We're in Antarctica!\n    Practice:\n    \n      Exploring and summarizing data about our new colleagues\n      Exploring weather station data\n      Learning R and RStudio, basic data manipulation\n    \n  \n\n\n\n  Antarctica Narrative\n  \n    We start en route to Antarctica! Students took a survey to get to know teammates and pick a mascot.\n    We study weather data from Antarctic research stations and use the Palmer Penguin dataset for practice.\n  \n\n\n\n\n\n  Concepts\n  \n    \n      What is data science and how does it interact with daily life?\n      What is RStudio and how to navigate it\n      Assigning variables\n    \n  \n\n\n\n  Week Schedule\n  \n    \n      🗓️ Day 1: Welcome! Survey completed. Data to be used in Week 2.\n      Day 2: Discussion on data science and society; reflection prompt.\n      Day 3: Used welcome.Rmd in class for basic RStudio, arithmetic, and variable assignment.\n    \n  \n\n\n\n\n\n\n  Concepts\n  \n    \n      Assigning variables\n      Creating vectors\n      Functions & arguments\n      Loading data from CSV\n      Creating vectors from data columns\n      Calculating mean, median, standard deviation\n    \n  \n\n\n\n  Week Schedule\n  \n    \n      Day 1: Labor Day – No class\n      Day 2: Code-along with introToR.Rmd. Topics: variables, camel case, loading data, central tendency.\n        Homework: problemSet1.Rmd\n      Day 3: Group work on penguinPractice1.Rmd in Watzek Library – great collaboration!\n    \n  \n\n\n\n  Description\n  \n    Short week due to Labor Day. Code-along and group practice helped reinforce new skills.",
+    "crumbs": [
+      "Modules"
+    ]
+  },
+  {
     "objectID": "modules/module_4/week 11/regression-homework.html",
     "href": "modules/module_4/week 11/regression-homework.html",
     "title": "Regression Homework",
@@ -493,26 +513,6 @@
     "text": "Github Material Organization\nIn each module, there is a readme file explaining the broad goals. Each week also has a read me file explaining the sequence of activities.",
     "crumbs": [
       "Data in the wild"
-    ]
-  },
-  {
-    "objectID": "modules.html",
-    "href": "modules.html",
-    "title": "Modules",
-    "section": "",
-    "text": "Week Overviews\n  \n    Week 1: Introduction to Course – meet the team, understand the mission.\n    Weeks 2–4: We're in Antarctica!\n    Practice:\n    \n      Exploring and summarizing data about our new colleagues\n      Exploring weather station data\n      Learning R and RStudio, basic data manipulation\n    \n  \n\n\n\n  Antarctica Narrative\n  \n    We start en route to Antarctica! Students took a survey to get to know teammates and pick a mascot.\n    We study weather data from Antarctic research stations and use the Palmer Penguin dataset for practice.\n  \n\n\n\n\n\n  Concepts\n  \n    \n      What is data science and how does it interact with daily life?\n      What is RStudio and how to navigate it\n      Assigning variables\n    \n  \n\n\n\n  Week Schedule\n  \n    \n      🗓️ Day 1: Welcome! Survey completed. Data to be used in Week 2.\n      Day 2: Discussion on data science and society; reflection prompt.\n      Day 3: Used welcome.Rmd in class for basic RStudio, arithmetic, and variable assignment.\n    \n  \n\n\n\n\n\n\n  Concepts\n  \n    \n      Assigning variables\n      Creating vectors\n      Functions & arguments\n      Loading data from CSV\n      Creating vectors from data columns\n      Calculating mean, median, standard deviation\n    \n  \n\n\n\n  Week Schedule\n  \n    \n      Day 1: Labor Day – No class\n      Day 2: Code-along with introToR.Rmd. Topics: variables, camel case, loading data, central tendency.\n        Homework: problemSet1.Rmd\n      Day 3: Group work on penguinPractice1.Rmd in Watzek Library – great collaboration!\n    \n  \n\n\n\n  Description\n  \n    Short week due to Labor Day. Code-along and group practice helped reinforce new skills.",
-    "crumbs": [
-      "Modules"
-    ]
-  },
-  {
-    "objectID": "modules.html#module-1",
-    "href": "modules.html#module-1",
-    "title": "Modules",
-    "section": "",
-    "text": "Week Overviews\n  \n    Week 1: Introduction to Course – meet the team, understand the mission.\n    Weeks 2–4: We're in Antarctica!\n    Practice:\n    \n      Exploring and summarizing data about our new colleagues\n      Exploring weather station data\n      Learning R and RStudio, basic data manipulation\n    \n  \n\n\n\n  Antarctica Narrative\n  \n    We start en route to Antarctica! Students took a survey to get to know teammates and pick a mascot.\n    We study weather data from Antarctic research stations and use the Palmer Penguin dataset for practice.\n  \n\n\n\n\n\n  Concepts\n  \n    \n      What is data science and how does it interact with daily life?\n      What is RStudio and how to navigate it\n      Assigning variables\n    \n  \n\n\n\n  Week Schedule\n  \n    \n      🗓️ Day 1: Welcome! Survey completed. Data to be used in Week 2.\n      Day 2: Discussion on data science and society; reflection prompt.\n      Day 3: Used welcome.Rmd in class for basic RStudio, arithmetic, and variable assignment.\n    \n  \n\n\n\n\n\n\n  Concepts\n  \n    \n      Assigning variables\n      Creating vectors\n      Functions & arguments\n      Loading data from CSV\n      Creating vectors from data columns\n      Calculating mean, median, standard deviation\n    \n  \n\n\n\n  Week Schedule\n  \n    \n      Day 1: Labor Day – No class\n      Day 2: Code-along with introToR.Rmd. Topics: variables, camel case, loading data, central tendency.\n        Homework: problemSet1.Rmd\n      Day 3: Group work on penguinPractice1.Rmd in Watzek Library – great collaboration!\n    \n  \n\n\n\n  Description\n  \n    Short week due to Labor Day. Code-along and group practice helped reinforce new skills.",
-    "crumbs": [
-      "Modules"
     ]
   }
 ]
