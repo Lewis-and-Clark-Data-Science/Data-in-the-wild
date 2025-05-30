@@ -79,6 +79,7 @@ Now let's introduce a new function, `select()`. The utility of select isn't enti
 First, a quick reminder of how to use `$`
 
 ```{r}
+#| output: false
 # column selection in base R (using $)
 stationData$year
 ```
@@ -88,6 +89,7 @@ Now let's see how the same can be accomplished with `select()`. The first argume
 `select(.data, column(s))`
 
 ```{r}
+#| output: false
 # first argument is the data frame, then the columns
 select(stationData, year)
 # multiple columns
@@ -107,6 +109,7 @@ Notice that unlike using `$`, using `select()` returns a formatted data frame. W
 Write a line of code to select the following columns from the `stationData`: `temp`, `wind_speed`, `humidity` . Then, select everything but the `wind_direction` column.
 
 ```{r}
+#| output: false
 #select
 select(stationData, temp, wind_speed, humidity)
 #select
@@ -159,6 +162,7 @@ With a sufficiently large data set though, it may be difficult to determine what
 The `unique()` function tells us all the unique values in an vector/column. When you have an enormous data set like this, you won't be able to gather all the possible values of a variable manually. For instance, we might like to know: "What years are represented in our data?", or "What are the IDs of the various stations?"
 
 ```{r}
+#| output: false
 # get unique values of the year column
 unique(stationData$year)
 
@@ -170,6 +174,7 @@ unique(stationData$month)
 ```
 
 ```{r}
+#| output: false
 # get unique values of the station_id column
 unique(stationData$station_id)
 
@@ -186,6 +191,7 @@ length(unique(stationData$station_id))
 Now, filter the data so that it only contains one station.
 
 ```{r}
+#| output: false
 # filter for a single station
 filter(stationData, station_id=="ag4q3h")
 
@@ -202,6 +208,7 @@ Working with the climate data, construct a small set of code that does the follo
 3.  Name this new data frame `cold`
 
 ```{r}
+#| output: false
 # not piped
 slim <- select(stationData, month, temp, station_id)
   
