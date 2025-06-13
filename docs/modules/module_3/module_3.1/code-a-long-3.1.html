@@ -278,84 +278,8 @@ window.Quarto = {
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sick_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"sick-fish.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 1000 Columns: 12
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (1): species
-dbl (10): tank_id, avg_daily_temp, num_fish, day_length, tank_volume, size_d...
-lgl  (1): below
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(sick_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 1,000
-Columns: 12
-$ tank_id          &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16…
-$ species          &lt;chr&gt; "tilapia", "tilapia", "tilapia", "tilapia", "tilapia"…
-$ avg_daily_temp   &lt;dbl&gt; 22.95922, 23.98088, 23.97097, 24.26474, 24.29623, 23.…
-$ num_fish         &lt;dbl&gt; 95, 96, 101, 98, 93, 101, 98, 109, 97, 102, 99, 99, 9…
-$ day_length       &lt;dbl&gt; 9, 11, 11, 10, 10, 11, 12, 10, 10, 10, 9, 11, 11, 10,…
-$ tank_volume      &lt;dbl&gt; 399.6975, 399.8071, 398.8427, 399.8410, 399.7561, 398…
-$ size_day_30      &lt;dbl&gt; 2784.895, 2781.003, 2785.807, 2785.253, 2786.946, 278…
-$ ammonia          &lt;dbl&gt; 0.10561057, 0.09073854, 0.10867733, 0.09421766, 0.093…
-$ avg_daily_temp_F &lt;dbl&gt; 73.32660, 75.16558, 75.14774, 75.67654, 75.73322, 75.…
-$ below            &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE…
-$ num_sick         &lt;dbl&gt; 63, 18, 12, 0, 5, 11, 11, 0, 55, 23, 7, 65, 61, 62, 6…
-$ oxygen           &lt;dbl&gt; 9.480023, 9.288952, 9.467007, 9.322897, 9.327849, 9.4…</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sick_data <span class="ot">&lt;-</span> sick_data <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc_sick =</span> num_sick<span class="sc">/</span>num_fish)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>sick_data <span class="sc">%&gt;%</span> </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species<span class="sc">==</span><span class="st">"tilapia"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(below) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(perc_sick))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 2
-  below  mean
-  &lt;lgl&gt; &lt;dbl&gt;
-1 FALSE 0.125
-2 TRUE  0.597</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sick_data <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species<span class="sc">==</span><span class="st">"tilapia"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>perc_sick, <span class="at">fill=</span>below)) <span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">alpha=</span><span class="fl">0.4</span>, <span class="at">position =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="code-a-long-3.1_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
 </div>
 <p>So, lets validate our results using a t-test.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tilapia <span class="ot">&lt;-</span> sick_data <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species<span class="sc">==</span><span class="st">"tilapia"</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(perc_sick <span class="sc">~</span> below, <span class="at">data =</span> tilapia)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Welch Two Sample t-test
-
-data:  perc_sick by below
-t = -71.159, df = 721.94, p-value &lt; 2.2e-16
-alternative hypothesis: true difference in means between group FALSE and group TRUE is not equal to 0
-95 percent confidence interval:
- -0.4855783 -0.4595037
-sample estimates:
-mean in group FALSE  mean in group TRUE 
-          0.1249432           0.5974842 </code></pre>
-</div>
-</div>
 </section>
 <section id="fishing-and-leopard-seals" class="level3">
 <h3 class="anchored" data-anchor-id="fishing-and-leopard-seals">Fishing and leopard seals</h3>
@@ -367,42 +291,6 @@ mean in group FALSE  mean in group TRUE
 <section id="data-exploration" class="level3">
 <h3 class="anchored" data-anchor-id="data-exploration">Data exploration</h3>
 <p>Let’s take a look at our new data. Because we have two different collection schemes, our data are separated in to two data frames (and files).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>seal_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"arctic-seals.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 640 Columns: 5
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (2): time, bay
-dbl  (2): area, num_seals
-date (1): date
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fish_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"arctic-fish.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 640 Columns: 5
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (2): time, bay
-dbl  (2): net, num_fish
-date (1): date
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(fish_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 640
-Columns: 5
-$ date     &lt;date&gt; 2021-03-01, 2021-03-01, 2021-03-01, 2021-03-01, 2021-03-01, …
-$ net      &lt;dbl&gt; 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1…
-$ time     &lt;chr&gt; "AM", "AM", "AM", "AM", "AM", "PM", "PM", "PM", "PM", "PM", "…
-$ num_fish &lt;dbl&gt; 7, 4, 2, 2, 5, 1, 0, 4, 6, 1, 6, 1, 3, 4, 4, 2, 4, 3, 4, 4, 4…
-$ bay      &lt;chr&gt; "Wilhelmenia", "Wilhelmenia", "Wilhelmenia", "Wilhelmenia", "…</code></pre>
-</div>
-</div>
 </section>
 <section id="group-brainstorm" class="level3">
 <h3 class="anchored" data-anchor-id="group-brainstorm">Group Brainstorm</h3>
@@ -425,36 +313,6 @@ $ bay      &lt;chr&gt; "Wilhelmenia", "Wilhelmenia", "Wilhelmenia", "Wilhelmenia
 <li><p>Perform a t-test to evaluate our hypothesis</p></li>
 <li><p>Interpret the results using the p-value</p></li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(num_fish <span class="sc">~</span> time, <span class="at">data=</span>fish_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Welch Two Sample t-test
-
-data:  num_fish by time
-t = -1.5665, df = 635.07, p-value = 0.1177
-alternative hypothesis: true difference in means between group AM and group PM is not equal to 0
-95 percent confidence interval:
- -0.52114501  0.05864501
-sample estimates:
-mean in group AM mean in group PM 
-         3.91875          4.15000 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(num_seals <span class="sc">~</span> time, <span class="at">data =</span> seal_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Welch Two Sample t-test
-
-data:  num_seals by time
-t = 2.6898, df = 635.23, p-value = 0.007338
-alternative hypothesis: true difference in means between group AM and group PM is not equal to 0
-95 percent confidence interval:
- 0.121469 0.778531
-sample estimates:
-mean in group AM mean in group PM 
-           5.825            5.375 </code></pre>
-</div>
-</div>
 
 
 </section>

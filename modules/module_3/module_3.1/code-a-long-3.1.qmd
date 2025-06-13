@@ -45,31 +45,16 @@ At the time, we just compared means and visualized the data, but that isn't very
 
 ```{r}
 library(tidyverse)
-sick_data <- read_csv("sick-fish.csv")
 
-glimpse(sick_data)
-
-sick_data <- sick_data %>% 
-  mutate(perc_sick = num_sick/num_fish)
-
-sick_data %>% 
-  filter(species=="tilapia") %>% 
-  group_by(below) %>% 
-  summarize(mean = mean(perc_sick))
-
-sick_data %>% 
-  filter(species=="tilapia") %>% 
-  ggplot(aes(x=perc_sick, fill=below)) +
-  geom_histogram(alpha=0.4, position = "identity")
 ```
 
 So, lets validate our results using a t-test.
 
 ```{r}
-tilapia <- sick_data %>% 
-  filter(species=="tilapia")
 
-t.test(perc_sick ~ below, data = tilapia)
+
+
+
 ```
 
 ### Fishing and leopard seals
@@ -87,10 +72,7 @@ Luckily, we've been collecting relevant data for awhile. We have: radio tags on 
 Let's take a look at our new data. Because we have two different collection schemes, our data are separated in to two data frames (and files).
 
 ```{r}
-seal_data <- read_csv("arctic-seals.csv")
-fish_data <- read_csv("arctic-fish.csv")
 
-glimpse(fish_data)
 
 
 ```
@@ -122,7 +104,8 @@ Generate descriptive statistics from our data, and visualize the data.
 -   Interpret the results using the p-value
 
 ```{r}
-t.test(num_fish ~ time, data=fish_data)
 
-t.test(num_seals ~ time, data = seal_data)
+
+
+
 ```
