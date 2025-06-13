@@ -157,10 +157,10 @@ execute:
         <a href="modules/module_3/module_3.1/homework-3.1-key.qmd">key</a>
       </td>
       <td>
-        -
+        <a href="modules/module_3/module_3.1/t-test-by-hand.pdf" target="_blank">t-test by hand</a>
       </td>
       <td>
-      <div class='wget'>wget https://github.com/Lewis-and-Clark-Data-Science/Data-in-the-wild/raw/refs/heads/main/zips/module_2.2.zip && unzip module_2.2.zip && rm module_2.2.zip</div>
+      <div class='wget'>wget https://github.com/Lewis-and-Clark-Data-Science/Data-in-the-wild/raw/refs/heads/main/zips/module_3.1.zip && unzip module_3.1.zip && rm module_3.1.zip</div>
       </td>
     </tr>      
 
