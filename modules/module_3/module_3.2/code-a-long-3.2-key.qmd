@@ -1,17 +1,20 @@
 ---
-title: "Module 3: ANOVA"
+title: "Code-a-long 3.2 Key - Statistical inference and ANOVAs"
 author: "Mila Pruiett"
-output:
-  html_document: default
+format: html
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Statistical inference and ANOVAs
+### Student learning outcomes
 
-## Wrapping up t-tests
+-   Students will understand basic concepts underlying inference
+-   Students will be able to formulate statistical hypotheses using data
+-   Students will be able to perform and interpret the results of an ANOVA
+
+### Wrapping up t-tests
 
 Last week we used t-tests to think about which bay we should go fishing to minimize our impact on leopard seals.
 
@@ -45,7 +48,7 @@ Response:
 3.  What should we do?
 
 ```{r}
-
+# How to report a t test: We can reject null and conclude x bc (DF< alpha, p)
 ```
 
 ![Cute Seal](babySeal.jpg)
@@ -72,7 +75,7 @@ $H_{a}$ (alternative hypothesis) - The means of the populations we sampled from 
 
 ### Let's jump in with an example
 
-We have figured out the best option for minimizing our impact on leopard seals while keeping ourselves fed between two bays: Wilhelmina and Marguerite. But there are more bays! And ideally we would use two or more bays to spread out our fishing efforts among mulitple humped rock cod populations.
+We have figured out the best option for minimizing our impact on leopard seals while keeping ourselves fed between two bays: Wilhelmina and Marguerite. But there are more bays! And ideally we would use two or more bays to spread out our fishing efforts among multiple humped rock cod populations.
 
 Our team has collected similar data, as we had for Wilhelmina and Marguerite, on four more bays: Emperor, Hope, Sulzberger, and Iceberg.
 
@@ -82,17 +85,30 @@ We are going to examine the fish populations in class, and you will work with th
 
 ```{r}
 
+# Independent: Bays
+
+# Dependent: Fish
+
+
+
 ```
 
 2.  What are our null and alternative hypotheses?
 
 ```{r}
 
+# Null Hypothesis: There is no difference in the means of the fish populations of each bay.
+
+# Alternative Hypothesis: There is a difference in the means of the fish populations of each bay.
+
+
 ```
 
 3.  Load tidyverse and read in the data
 
 ```{r}
+library("tidyverse")
+fishManyBays <- read_csv("antarctic_fish_many_bays.csv")
 
 ```
 
@@ -101,12 +117,26 @@ It's always a good idea to visualize your data first. This gives you some perspe
 4.  
 
 ```{r}
+#Histogram
 
+ggplot(data = fishManyBays, aes(x = num_fish)) + 
+  geom_histogram()  +
+  facet_wrap(~ bay)
 ```
 
 5.  Now let's calculate some summary statistics. What do you notice?
 
 ```{r}
+
+
+fishSummary <- fishManyBays %>% 
+  group_by(bay) %>% 
+  summarize(meanFish = mean(num_fish), 
+            standDevFish = sd(num_fish), 
+            sampleSize = n())
+
+fishSummary
+
 
 ```
 
@@ -114,11 +144,24 @@ It's always a good idea to visualize your data first. This gives you some perspe
 
 ```{r}
 
+ggplot(data = fishSummary, aes(bay, meanFish, fill = bay)) + 
+  geom_bar(stat = "identity") +
+    geom_errorbar( aes(ymin = meanFish-standDevFish, ymax = meanFish + standDevFish), 
+                 data = fishSummary, width = 0.2)  +
+  labs(x="Bay Name", y="Mean Number of Fish", title="Mean number of fish per bay")
+
+
+
 ```
 
 7.  Finally, let's code for the ANOVA.
 
 ```{r}
+
+fishModel <- aov(data = fishManyBays, num_fish ~ bay)
+
+summary(fishModel)
+
 
 ```
 
@@ -126,17 +169,27 @@ It's always a good idea to visualize your data first. This gives you some perspe
 
 ```{r}
 
+# Reject the null hypothesis that all bays have the same mean number of fish.
+
+# Based upon the p-value (<2e-16), at least one bay has a significantly different mean number of fish compared to the others.
+
+
 ```
 
 9.  What is our recommendation for fishing based only off of this information?
 
 ```{r}
 
+# We need additional information.
+
 ```
 
 ANOVAs are incredibly useful to tell you if there is a difference in the means of any of the groups. However, they do not tell you which means differ from another. To do that, you need to use a class of tests called Post Hoc Tests. Post hoc tests take into account the problem of running multiple pairwise comparisons, which is the increasing chance of error rates. The most common is Tukey's HSD, but there are others depending on the specifics of your data set. You don't need to worry about understanding Tukey's test, but here I am going to show you how it works and an overview of the interpretation of it.
 
 ```{r}
+
+TukeyHSD(fishModel)
+
 
 ```
 

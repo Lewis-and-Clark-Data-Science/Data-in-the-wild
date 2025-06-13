@@ -1,6 +1,6 @@
 ---
 title: "Homework Module 2.1"
-output: html
+format: html
 ---
 
 

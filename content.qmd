@@ -164,7 +164,24 @@ execute:
       </td>
     </tr>      
 
-    
+     <tr>
+      <th scope="row">3.2</th>
+      <td>Statistical inference and ANOVAs</td>
+      <td>
+        <a href="modules/module_3/module_3.2/code-a-long-3.2.qmd">blank</a> | 
+        <a href="modules/module_3/module_3.2/code-a-long-3.2-key.qmd">key</a>
+      </td>
+      <td>
+        <a href="modules/module_3/module_3.2/homework-3.2.qmd">blank</a> | 
+        <a href="modules/module_3/module_3.2/homework-3.2-key.qmd">key</a>
+      </td>
+      <td>
+        
+      </td>
+      <td>
+      <div class='wget'>wget https://github.com/Lewis-and-Clark-Data-Science/Data-in-the-wild/raw/refs/heads/main/zips/module_3.2.zip && unzip module_3.2.zip && rm module_3.2.zip</div>
+      </td>
+    </tr>    
   </tbody>
 </table>
 ```

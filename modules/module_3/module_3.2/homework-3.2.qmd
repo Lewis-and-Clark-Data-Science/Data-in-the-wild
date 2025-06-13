@@ -1,13 +1,11 @@
 ---
-title: "Module 3: ANOVA"
-author: "Mila Pruiett"
-output:
-  html_document: default
+title: "Module 3.2 Homework"
+format: html
 ---
 
-Your name:
+### Your Name
 
-Date:
+### Date
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

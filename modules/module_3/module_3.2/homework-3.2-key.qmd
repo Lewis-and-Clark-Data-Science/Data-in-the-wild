@@ -1,0 +1,96 @@
+---
+title: "Module 3.2 Homework"
+format: html
+---
+
+### Your Name
+
+### Date
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Main Question: We want to know if the population of leopard seals differs between the bays.**
+
+1.  To answer this question, which variable in the data set is the independent variable? Which is the dependent? Which variable is categorical? Which variable is numeric? (4pts)
+
+```{r}
+# independent is the bay
+
+# dependent is the number of seals
+
+# categorical is bay
+
+# numerical is number of seals
+
+```
+
+2.  What are our null and alternative hypotheses? (2pts)
+
+```{r}
+# Null: The mean number of leapord seals is the same at each of the bays
+
+# Alternative: The mean number of leapord seals is not the same at all of the bays. At least one is different.  
+
+```
+
+3.  Load tidyverse and read in the data, called "antarctic_seals_many_bays.csv" (2pts)
+
+```{r}
+library(tidyverse)
+
+sealData <- read_csv("antarctic_seals_many_bays.csv")
+
+```
+
+4.  Create a histogram of the number of seals to see the distribution. Use facet_wrap(\~ bay) to create 6 histograms, one for each bay. (2pts)
+
+```{r}
+
+ggplot(sealData, aes(num_seals)) +
+  geom_histogram() +
+  facet_wrap(~bay)
+
+
+```
+
+5.  Now let's calculate some summary statistics of the number of leopard seals per bay (mean and standard deviation). Which bay has the highest average of seals? Which bay has the lowest average? (4pts)
+
+```{r}
+# summary stats
+sealSummary <- sealData %>% 
+  group_by(bay) %>% 
+  summarize(meanSeals = mean(num_seals), sdSeals = sd(num_seals))
+# bay with lowest mean number of seals: Sulzberger
+# bay with the greatest mean number of seals: Hope
+
+ggplot(data = sealSummary, aes(bay, meanSeals, fill = bay)) + 
+  geom_bar(stat = "identity") +
+    geom_errorbar( aes(ymin = meanSeals-sdSeals, ymax = meanSeals + sdSeals), 
+              width = 0.2)  +
+  labs(x="Bay Name", y="Mean Number of Seals", title="Mean number of seals per bay")
+
+
+
+```
+
+6.  Run an ANOVA to test if the mean number of seals varies between the bays. (1pts)
+
+```{r}
+
+sealModel <- aov(data = sealData, num_seals ~ bay)
+summary(sealModel)
+
+```
+
+7.  Interpret the ANOVA table you just created: What is the p-value? What is the F-value? What is our critical p-value we have been using in this class (called the alpha level)? Do you accept or reject the null hypothesis? What does that mean, specifically for comparing the means of the data (you should reference "bay" and "population" in your answer? (5pts)
+
+```{r}
+# the p-value is smaller than 2 x 10 ^ - 16 
+# the f-stat is 1129
+# I reject the null hypothesis because the p-value of 2e-16 is smaller than my alpha of 0.05
+# this means that at least one of the mean number of leopard seals is different in one of the bays
+
+
+```
